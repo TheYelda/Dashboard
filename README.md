@@ -3,16 +3,32 @@ Records of Yelda development progress.
 
 ## Documentation
 
-1. [项目愿景](https://github.com/TheYelda/Dashboard/blob/master/vision.md)
-2. [团队组建](https://github.com/TheYelda/Dashboard/blob/master/team_profile.md)
-3. [调查分析](https://github.com/TheYelda/Dashboard/blob/master/investigation.md)
-4. [产品需求文档](https://github.com/TheYelda/Dashboard/blob/master/%E4%BA%A7%E5%93%81%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3.md)
-5. [用例分析文档](https://github.com/TheYelda/Dashboard/blob/master/use_case.md)
-4. [API设计文档](https://github.com/TheYelda/Dashboard/blob/master/api.md)
-5. [团队协作规范](https://github.com/TheYelda/Dashboard/blob/master/git_collaboration_guide.md)
-6. [HTTP状态码使用规范](https://github.com/TheYelda/Dashboard/blob/master/http_status_codes_reference.md)
-7. [Python代码规范](https://github.com/TheYelda/Dashboard/blob/master/python_code_style_guide.md)
-8. [数据库设计文档](https://github.com/TheYelda/Dashboard/blob/master/database_architecture.md)
+1. [About（项目规划）](https://github.com/TheYelda/Dashboard/blob/master/README.md)
+2. [Team profile（团队组建）](https://github.com/TheYelda/Dashboard/blob/master/team_profile.md)
+3. [Investigation（项目前期调研）](https://github.com/TheYelda/Dashboard/blob/master/investigation.md)
+4. [Vision（项目愿景）](https://github.com/TheYelda/Dashboard/blob/master/vision.md)
+5. [Product Backlog （产品特性）](https://github.com/TheYelda/Dashboard/blob/master/%E4%BA%A7%E5%93%81%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3.md)
+6. Requirement specification（需求规格说明）
+	* 6.1 [Usecase Diagram（用例图）](https://github.com/TheYelda/Dashboard/blob/master/use_case.md)
+	* 6.2 Use Cases（用例+活动图）
+	* 6.3 Domian Model（领域模型）
+	* 6.4 State Model（状态模型）
+2. Design（设计）
+	* 7.1 UI design
+	*  用例 UI设计
+	* 7.2 [Database design](https://github.com/TheYelda/Dashboard/blob/master/database_architecture.md)
+		* 7.2.1 用户及权限系统数据库设计
+		* 7.2.2 XX子系统数据课设计
+		*  7.2.x 第三方数据评审结果
+		*  7.3 [API 设计](https://github.com/TheYelda/Dashboard/blob/master/api.md)
+1. 生产规范与指南
+	* 8.1 [Python 代码规范](https://github.com/TheYelda/Dashboard/blob/master/python_code_style_guide.md)
+	* 8.2 [REST API 设计规范](https://github.com/TheYelda/Dashboard/blob/master/http_status_codes_reference.md)
+	* 8.3 [团队协作规范](https://github.com/TheYelda/Dashboard/blob/master/git_collaboration_guide.md)
+4. X1 meet_recording
+5. inception meeting (yy/mm/dd)
+6. X2 Tech/Work Report
+7. 学号-title
 
 ## Iterations
 
