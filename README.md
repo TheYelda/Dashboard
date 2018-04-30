@@ -10,7 +10,7 @@ Records of Yelda development progress.
 5. [Product Backlog （产品特性）](https://github.com/TheYelda/Dashboard/blob/master/%E4%BA%A7%E5%93%81%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3.md)
 6. Requirement specification（需求规格说明）
 	* 6.1 [Usecase Diagram（用例图）](https://github.com/TheYelda/Dashboard/blob/master/use_case.md)
-	* 6.2 [Domian Model（领域模型）](https://github.com/TheYelda/Dashboard/blob/master/investigation.md)
+	* 6.2 [Domian Model（领域模型）](https://github.com/TheYelda/Dashboard/blob/master/domain.md)
 2. Design（设计）
 	* 7.1 UI design
 	*  用例 UI设计
