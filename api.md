@@ -3,7 +3,7 @@
 **For MUCH better reading experience, please read the document at [theyelda.docs.apiary.io](https://theyelda.docs.apiary.io/#reference).**
 
 FORMAT: 1A
-HOST: http://theyelda.org/
+HOST: http://localhost
 
 # TheYelda
 
@@ -48,15 +48,8 @@ HAL links.
 # Group Access Authorization and Control
 Access and Control of *The Yelda API* OAuth token.
 
-## Authorization [/authorization]
+## Authorization [/authorization/]
 Authorization Resource represents an authorization granted to the user. You can **only** access your own authorization, and only through **Username and Password**.
-
-The Authorization Resource has the following attribute:
-
-+ token
-+ authority
-
-Where *token* represents an OAuth token and *scopes* is an array of scopes granted for the given authorization. At this moment the only available scope is `account_write`.
 
 ### Create Authorization [POST]
 + Request (application/json)
@@ -68,7 +61,6 @@ Where *token* represents an OAuth token and *scopes* is an array of scopes grant
     + Body
 
             {
-                "message": "",
                 "username": "yelda",
                 "password": "yeldapass"
             }
@@ -82,9 +74,9 @@ Where *token* represents an OAuth token and *scopes* is an array of scopes grant
     + Body
 
             {
-                "message": "",
-                "token": "abcde12345",
-                "authority": "admin"
+                "message": "登录成功",
+                "account_id": 123,
+                "authority_id": 1
             }
 
 ### Remove an Authorization [DELETE]
@@ -93,23 +85,59 @@ Where *token* represents an OAuth token and *scopes* is an array of scopes grant
     + Headers
 
             Accept: application/json
-        
+            
     + Body
 
             {
-                "token": "abcde12345"
+                "message": "登出成功"
             }
 
 + Response 204
 
+# Group Oneself
+Myself-related resources of *The Yelda API*.
+
+## a Single Oneself [/myself]
+A single account object. The account resource has the following attributes:
+
++ id
+
+### Retrieve a Single Oneself [GET]
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+            
+    + Body
+
+            {
+            }
+
++ Response 200
+
+    + Headers
+
+            Last-Modified: 2018-04-17
+
+    + Body
+
+            {
+                "message": "ID获取成功",
+                "account_id": 123
+            }
+
+
 # Group Account
 Account-related resources of *The Yelda API*.
 
-## a Single Account [/accounts/{id}]
+## a Single Account [/accounts/{account_id}]
 A single account object. The account resource has the following attributes:
 
 + id
 + username
++ nickname
 + password
 + email
 + photo
@@ -124,11 +152,10 @@ The *id* is assigned by the server at the moment of creation.
     + Headers
 
             Accept: application/json
-        
+            
     + Body
 
             {
-                "token": "abcde12345"
             }
 
 + Response 200
@@ -140,10 +167,10 @@ The *id* is assigned by the server at the moment of creation.
     + Body
 
             {
-                "message": "",
-                "id": "1",
+                "message": "账户获取成功",
+                "account_id": 364,
                 "username": "yelda",
-                "password": "yeldapass",
+                "nickname": "Nick",
                 "email": "yelda@mail.com",
                 "photo": "photo1",
                 "authority": "admin"
@@ -157,15 +184,15 @@ To update an account, send a JSON with updated value for All of the account reso
     + Headers
 
             Accept: application/json
-        
+            
     + Body
 
             {
-                "username": "yelda",
+                "nickname": "Nick",
                 "password": "mypass",
                 "email": "yelda@mail.com",
                 "photo": "photo1",
-                "authority": "admin"
+                "authority": 1
             }
 
 + Response 200
@@ -173,17 +200,16 @@ To update an account, send a JSON with updated value for All of the account reso
     + Headers
 
             Last-Modified: 2018-04-17
-        
+            
     + Body
 
             {
-                "message": "",
-                "id": "1",
+                "message": "账户编辑成功",
                 "username": "yelda",
-                "password": "mypass",
+                "nickname": "Nick",
                 "email": "yelda@mail.com",
                 "photo": "photo1",
-                "authority": "admin"
+                "authority": 1
             }
 
 
@@ -191,15 +217,17 @@ To update an account, send a JSON with updated value for All of the account reso
 
 + Response 204
 
-## Accounts Collection [/accounts{?username}]
+    + Body
+
+            {
+                "message": "账户删除成功"
+            }
+
+## Accounts Collection [/accounts/{?username}]
 Collection of all accounts.
 
-The account Collection resource has the following attribute:
-
-+ count
-
 + Parameters
-    + username: yelda (required, string) - Name of the Account in form of a string
+    + username: yelda (optional, string) - Name of the Account in form of a string
 
 ### List All Accounts [GET]
 
@@ -208,11 +236,10 @@ The account Collection resource has the following attribute:
     + Headers
 
             Accept: application/json
-        
+            
     + Body
 
             {
-                "token": "abcde12345"
             }
 
 + Response 200
@@ -224,52 +251,51 @@ The account Collection resource has the following attribute:
     + Body
 
             {
-                "message": "",
-                "count": "3",
-                [
-                    {
-                        "id": "1",
-                        "username": "yelda",
-                        "password": "yeldapass",
-                        "email": "yelda@mail.com",
-                        "photo": "photo1",
-                        "authority": "admin"
-                    }, {
-                        "id": "2",
-                        "username": "yelda2",
-                        "password": "yeldapass2",
-                        "email": "yelda2@mail.com",
-                        "photo": "photo2",
-                        "authority": "admin"
-                    }, {
-                        "id": "3",
-                        "username": "yelda3",
-                        "password": "yeldapass3",
-                        "email": "yelda3@mail.com",
-                        "photo": "photo3",
-                        "authority": "admin"
-                    }
-                ]
+                "message": "账户集合获取成功",
+                "data":
+                        [
+                            {
+                                "id": 12,
+                                "username": "yelda",
+                                "nickname": "Nick",
+                                "email": "yelda@mail.com",
+                                "photo": "photo1",
+                                "authority": "admin"
+                            }, {
+                                "id": 23,
+                                "username": "yelda2",
+                                "nickname": "Nick2",
+                                "email": "yelda2@mail.com",
+                                "photo": "photo2",
+                                "authority": "admin"
+                            }, {
+                                "id": 34,
+                                "username": "yelda3",
+                                "nickname": "Nick2",
+                                "email": "yelda3@mail.com",
+                                "photo": "photo3",
+                                "authority": "admin"
+                            }
+                        ]
             }
 
 ### Create an Account [POST]
-To create a new account simply provide a JSON. This action requires an `token` with `authority` of `admin` .
+To create a new account simply provide a JSON. This action requires an `authority` of `admin` .
 
 + Request (application/json)
 
     + Headers
 
             Accept: application/json
-        
+            
     + Body
 
             {
-                "id": "100",
                 "username": "yelda100",
+                "nickname": "Nick",
                 "password": "yeldapass100",
                 "email": "yelda100@mail.com",
-                "photo": "photo100",
-                "authority": "doctor"
+                "photo": "photo100"
             }
 
 + Response 201
@@ -277,17 +303,11 @@ To create a new account simply provide a JSON. This action requires an `token` w
     + Headers
 
             Location: /accounts/100
-        
+            
     + Body
 
             {
-                "message": "",
-                "id": "100",
-                "username": "yelda100",
-                "password": "yeldapass100",
-                "email": "yelda100@mail.com",
-                "photo": "photo100",
-                "authority": "doctor"
+                "message": "注册成功"
             }
 
 # Group Job
@@ -301,7 +321,7 @@ A single job object. The job resource has the following attributes:
 + doctor_id
 + label_id
 + state
-+ finish_date
++ finished_date
 
 The *id* is assigned by the server at the moment of creation.
 
@@ -312,11 +332,10 @@ The *id* is assigned by the server at the moment of creation.
     + Headers
 
             Accept: application/json
-        
+            
     + Body
 
             {
-                "token": "abcde12345"
             }
 
 + Response 200
@@ -334,7 +353,7 @@ The *id* is assigned by the server at the moment of creation.
                 "doctor_id": "1234",
                 "label_id": "12345",
                 "state": "unlabeled",
-                "finish_date": "2018-04-17"
+                "finished_date": "2018-04-17"
             }
 
 ### Edit a Job [PUT]
@@ -349,12 +368,11 @@ To update a job, send a JSON with updated value for All of the job resource attr
     + Body
 
             {
-                "token": "abcde12345",
                 "image_id": "123",
                 "doctor_id": "1234",
                 "label_id": "12345",
                 "state": "unlabeled",
-                "finish_date": "2018-04-17"
+                "finished_date": "2018-04-17"
             }
 
 + Response 200
@@ -362,7 +380,7 @@ To update a job, send a JSON with updated value for All of the job resource attr
     + Headers
 
             Location: /jobs/1
-        
+            
     + Body
 
             {
@@ -372,7 +390,7 @@ To update a job, send a JSON with updated value for All of the job resource attr
                 "doctor_id": "1234",
                 "label_id": "12345",
                 "state": "unlabeled",
-                "finish_date": "2018-04-17"
+                "finished_date": "2018-04-17"
             }
 
 
@@ -380,17 +398,11 @@ To update a job, send a JSON with updated value for All of the job resource attr
 
 + Response 204
 
-## Jobs Collection [/jobs{?image_id}{?doctor_id}{?state}]
+## Jobs Collection [/jobs/{?image_id}{?doctor_id}{?state}]
 Collection of all jobs.
 
-The Job Collection resource has the following attribute:
-
-+ count
-
 + Parameters
-    + image_id: 1 (optional, int) - ID of the image in the job in form of an integer
     + doctor_id: 1 (optional, int) - ID of the doctor who the job is assigned to in form of an integer
-    + state: unlabeld (optional, string) - state of the job in form of a string
 
 ### List All Jobs [GET]
 
@@ -399,11 +411,10 @@ The Job Collection resource has the following attribute:
     + Headers
 
             Accept: application/json
-        
+            
     + Body
 
             {
-                "token": "abcde12345"
             }
 
 + Response 200
@@ -416,48 +427,47 @@ The Job Collection resource has the following attribute:
 
             {
                 "message":"",
-                "count": "3",
-                [
-                    {
-                        "id": "1",
-                        "image_id": "123",
-                        "doctor_id": "1234",
-                        "label_id": "12345",
-                        "state": "unlabeled",
-                        "finish_date": "2018-04-17"
-                    }, {
-                        "id": "2",
-                        "image_id": "234",
-                        "doctor_id": "2345",
-                        "label_id": "23456",
-                        "state": "unlabeled",
-                        "finish_date": "2018-04-17"
-                    }, {
-                        "id": "3",
-                        "image_id": "345",
-                        "doctor_id": "3456",
-                        "label_id": "34567",
-                        "state": "unlabeled",
-                        "finish_date": "2018-04-17"
-                    }
+                "data":
+                    [
+                        {
+                            "id": "1",
+                            "image_id": "123",
+                            "doctor_id": "1234",
+                            "label_id": "12345",
+                            "state": "unlabeled",
+                            "finished_date": "2018-04-17"
+                        }, {
+                            "id": "2",
+                            "image_id": "234",
+                            "doctor_id": "2345",
+                            "label_id": "23456",
+                            "state": "unlabeled",
+                            "finished_date": "2018-04-17"
+                        }, {
+                            "id": "3",
+                            "image_id": "345",
+                            "doctor_id": "3456",
+                            "label_id": "34567",
+                            "state": "unlabeled",
+                            "finished_date": "2018-04-17"
+                        }
                 ]
             }
 
 ### Create a Job [POST]
-To create a new job simply with a JSON. This action requires an `token` with `authority` of `admin` .
+To create a new job simply with a JSON. This action requires an `authority` of `admin` .
 
 + Request (application/json)
 
     + Headers
 
             Accept: application/json
-        
+            
     + Body
 
             {
                 "image_id": "123",
-                "doctor_id": "1234",
-                "state": "unlabeled"
+                "doctor_id": "1234"
             }
 
 + Response 201
@@ -465,7 +475,7 @@ To create a new job simply with a JSON. This action requires an `token` with `au
     + Headers
 
             Location: /jobs/1
-        
+            
     + Body
 
             {
@@ -473,9 +483,8 @@ To create a new job simply with a JSON. This action requires an `token` with `au
                 "id": "1",
                 "image_id": "123",
                 "doctor_id": "1234",
-                "label_id": "12345",
                 "state": "unlabeled",
-                "finish_date": "2018-04-17"
+                "finished_date": "2018-04-17"
             }
 
 # Group Image
@@ -498,11 +507,10 @@ The *id* is assigned by the server at the moment of creation.
     + Headers
 
             Accept: application/json
-        
+            
     + Body
 
             {
-                "token": "abcde12345"
             }
 
 + Response 200
@@ -533,7 +541,6 @@ To update an image, send a JSON with updated value for All of the image resource
     + Body
 
             {
-                "token": "abcde12345",
                 "id": "1",
                 "groundtruth_id": "123",
                 "state": "assigned",
@@ -545,7 +552,7 @@ To update an image, send a JSON with updated value for All of the image resource
     + Headers
 
             Location: /images/1
-        
+            
     + Body
 
             {
@@ -561,12 +568,9 @@ To update an image, send a JSON with updated value for All of the image resource
 
 + Response 204
 
-## Images Collection [/jobs{?state}]
+## Images Collection [/jobs/{?state}]
 Collection of all images.
 
-The Image Collection resource has the following attribute:
-
-+ count
 
 + Parameters
     + state: "unassigned" (optional, string) - ID of the image in form of a string
@@ -578,11 +582,10 @@ The Image Collection resource has the following attribute:
     + Headers
 
             Accept: application/json
-        
+            
     + Body
 
             {
-                "token": "abcde12345"
             }
 
 + Response 200
@@ -595,43 +598,40 @@ The Image Collection resource has the following attribute:
 
             {
                 "message":"",
-                "count": "3",
-                [
-                    {
-                        "id": "1",    
-                        "groundtruth_id": "123",
-                        "state": "unassigned",
-                        "info_id": "123"
-                    }, {
-                        "id": "2",    
-                        "groundtruth_id": "234",
-                        "state": "unassigned",
-                        "info_id": "234"
-                    }, {
-                        "id": "3",    
-                        "groundtruth_id": "345",
-                        "state": "unassigned",
-                        "info_id": "345"
-                    }
-                ]
+                "data":
+                    [
+                        {
+                            "id": "1",    
+                            "groundtruth_id": "123",
+                            "state": "unassigned",
+                            "info_id": "123"
+                        }, {
+                            "id": "2",    
+                            "groundtruth_id": "234",
+                            "state": "unassigned",
+                            "info_id": "234"
+                        }, {
+                            "id": "3",    
+                            "groundtruth_id": "345",
+                            "state": "unassigned",
+                            "info_id": "345"
+                        }
+                    ]
             }
 
 ### Create an Image [POST]
-To create a new image simply with a JSON. This action requires an `token` with `authority` of `admin` .
+To create a new image simply with a JSON. This action requires an `authority` of `admin` .
 
 + Request (application/json)
 
     + Headers
 
             Accept: application/json
-        
+            
     + Body
 
             {
-                "id": "1",    
-                "groundtruth_id": "123",
-                "state": "unassigned",
-                "info_id": "123"
+                "file_path": "/images/abc.png"
             }
 
 + Response 201
@@ -639,126 +639,16 @@ To create a new image simply with a JSON. This action requires an `token` with `
     + Headers
 
             Location: /images/1
-        
+            
     + Body
 
             {
                 "message": "",
                 "id": "1",
-                "groundtruth_id": "123",
                 "state": "unassigned",
                 "info_id": "123"
             }
 
-## Info [/images/{id}/infos/{id}]
-A single info object. The info resource has the following attributes:
-
-+ id
-+ filename
-+ source
-
-The *id* is assigned by the server at the moment of creation.
-
-### Retrieve a Single Info [GET]
-
-+ Request (application/json)
-
-    + Headers
-
-            Accept: application/json
-        
-    + Body
-
-            {
-                "token": "abcde12345"
-            }
-
-+ Response 200
-
-    + Headers
-
-            Last-Modified: 2018-04-17
-
-    + Body
-
-            {
-                "message": "",
-                "id": "1",    
-                "filename": "fname",
-                "source": "asource"
-            }
-
-### Edit an Info [PUT]
-To update a label, send a JSON with updated value for All of the label resource attributes EXCEPT id.
-
-+ Request (application/json)
-
-    + Headers
-
-            Accept: application/json
-
-    + Body
-
-            {
-                "token": "abcde12345",
-                "filename": "fname",
-                "source": "asource"
-            }
-
-+ Response 200
-
-    + Headers
-
-            Location: /images/1/infos/1
-        
-    + Body
-
-            {
-                "message": "",
-                "id": "1",    
-                "filename": "fname",
-                "source": "asource"
-            }
-
-
-### Delete an Info [DELETE]
-
-+ Response 204
-
-## Infos Collection [/images/{id}/infos]
-Collection of all infos.
-
-### Create an Info [POST]
-To create a new info simply with a JSON. This action requires an `token` with `authority` of `admin` .
-
-+ Request (application/json)
-
-    + Headers
-
-            Accept: application/json
-        
-    + Body
-
-            {
-                "id": "1",    
-                "filename": "fname",
-                "source": "asource"
-            }
-
-+ Response 201
-
-    + Headers
-
-            Location: /images/1/infos/1
-        
-    + Body
-
-            {
-                "message": "",
-                "id": "1",    
-                "filename": "fname",
-                "source": "asource"
-            }
 
 # Group Label
 Label-related resources of *The Yelda API*.
@@ -782,18 +672,17 @@ A single label object. The label resource has the following attributes:
 
 The *id* is assigned by the server at the moment of creation.
 
-### Retrieve a Single Image [GET]
+### Retrieve a Single Label [GET]
 
 + Request (application/json)
 
     + Headers
 
             Accept: application/json
-        
+            
     + Body
 
             {
-                "token": "abcde12345"
             }
 
 + Response 200
@@ -833,7 +722,6 @@ To update a label, send a JSON with updated value for All of the label resource 
     + Body
 
             {
-                "token": "abcde12345",
                 "quality": "",
                 "dr": "",
                 "stage": "",
@@ -852,8 +740,8 @@ To update a label, send a JSON with updated value for All of the label resource 
 
     + Headers
 
-            Location: /images/1
-        
+            Last-Modified: 2018-04-17
+            
     + Body
 
             {
@@ -874,7 +762,7 @@ To update a label, send a JSON with updated value for All of the label resource 
             }
 
 
-### Delete an Image [DELETE]
+### Delete an Label [DELETE]
 
 + Response 204
 
@@ -882,14 +770,14 @@ To update a label, send a JSON with updated value for All of the label resource 
 Collection of all labels.
 
 ### Create a Label [POST]
-To create a new image simply with a JSON. This action requires an `token` with `authority` of `admin` .
+To create a new image simply with a JSON. This action requires an `authority` of `admin` .
 
 + Request (application/json)
 
     + Headers
 
             Accept: application/json
-        
+            
     + Body
 
             {
@@ -912,8 +800,8 @@ To create a new image simply with a JSON. This action requires an `token` with `
 
     + Headers
 
-            Location: /images/1
-        
+            Last-Modified: 2018-04-17
+            
     + Body
 
             {
@@ -932,3 +820,33 @@ To create a new image simply with a JSON. This action requires an `token` with `
                 "glaucoma": "",
                 "comment": ""
             }
+
+## Codes
+
+### Authority 1XX
+
+| code |  name  | description |
+| :--: | :----: | :---------: |
+| 100  |  None  |             |
+| 101  | Admin  |             |
+| 102  | Doctor |             |
+| 103  | Guest  |             |
+
+### Job State 2XX
+
+| code |   name    | description |
+| :--: | :-------: | :---------: |
+| 200  | Unlabeled |             |
+| 201  | Labeling  |             |
+| 202  | Finished  |             |
+
+
+### Image State 3XX
+
+| code |    name    | description |
+| :--: | :--------: | :---------: |
+| 300  | Unassigned |             |
+| 301  |  Running   |             |
+| 302  | Different  |             |
+| 303  |    Done    |             |
+
