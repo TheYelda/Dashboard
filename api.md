@@ -94,13 +94,13 @@ Authorization Resource represents an authorization granted to the user. You can 
 
 + Response 204
 
-# Group Oneself
+# Group Self
 Myself-related resources of *The Yelda API*.
 
-## a Single Oneself [/myself]
+## a Single Self [/self]
 A single account object. The account resource has the following attributes:
 
-+ id
++ account_id
 
 ### Retrieve a Single Oneself [GET]
 
@@ -135,7 +135,7 @@ Account-related resources of *The Yelda API*.
 ## a Single Account [/accounts/{account_id}]
 A single account object. The account resource has the following attributes:
 
-+ id
++ account_id
 + username
 + nickname
 + password
@@ -827,7 +827,7 @@ To create a new image simply with a JSON. This action requires an `authority` of
 
 | code |  name  | description |
 | :--: | :----: | :---------: |
-| 100  |  None  |             |
+| 100  |  Empty |             |
 | 101  | Admin  |             |
 | 102  | Doctor |             |
 | 103  | Guest  |             |
