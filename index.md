@@ -21,7 +21,7 @@ date: 2018-05-05
 
 ### 6.3 [Domain Model](https://github.com/TheYelda/Dashboard/blob/master/docs/requirement_specification/domain.md)
 
-### 6.4 [State Model](#)
+### 6.4 [State Model](https://github.com/TheYelda/Dashboard/blob/master/docs/requirement_specification/state_model.md)
 
 ### 6.5 [System Sequence Model](#)
 
