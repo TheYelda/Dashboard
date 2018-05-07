@@ -53,4 +53,6 @@ date: 2018-05-05
 
 ### A.3 [Modelling Practice](#)
 
+### A.4 [Testing Docs](https://github.com/TheYelda/Dashboard/blob/master/docs/testing_docs/testing.md)
+
 
