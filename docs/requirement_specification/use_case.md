@@ -1,4 +1,4 @@
-8![use case](./images/use_case.png)
+![use case](../images/use_case.png)
 
 ## Brief Case
 

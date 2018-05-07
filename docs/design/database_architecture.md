@@ -1,4 +1,4 @@
 # Database information
 
-![db](./images/db.png)
+![db](../images/db.png)
 
