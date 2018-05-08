@@ -43,7 +43,11 @@ date: 2018-05-05
 
 #### 8.1.3 [Git Collaboration Guidelines](https://github.com/TheYelda/Dashboard/blob/master/docs/development_standard/git_collaboration_guide.md)
 
-### 8.2 [HTTP Status Codes Guidelines](https://github.com/TheYelda/Dashboard/blob/master/docs/development_standard/http_status_codes_reference.md)
+### 8.2 REST API Design Standard
+
+#### 8.2.1 [REST API Design](https://github.com/TheYelda/Dashboard/blob/master/docs/development_standard/restapi_design_standard.md)
+
+#### 8.2.2 [HTTP Status Codes Guidelines](https://github.com/TheYelda/Dashboard/blob/master/docs/development_standard/http_status_codes_reference.md)
 
 ## Appendix
 
