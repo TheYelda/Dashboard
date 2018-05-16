@@ -45,7 +45,7 @@
 
 ## Job
 ### Retrieve a single job
-![retrieve a single job](./images/retrieve_a_single_job)
+![retrieve a single job](./images/retrieve_a_single_job.png)
 
 ### edit a job
 ![edit a job](./images/edit_a_job.png)
