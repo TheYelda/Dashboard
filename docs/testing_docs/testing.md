@@ -43,4 +43,58 @@
 ### Create Accounts
 ![create_account](./images/create_account.png)
 
+## Job
+### Retrieve a single job
+![retrieve a single job](./images/retrieve_a_single_job)
+
+### edit a job
+![edit a job](./images/edit_a_job.png)
+
+### delete a job
+![delete a job](./images/delete_a_job.png)
+
+### list all jobs
+![list all jobs](./images/list_all_jobs.png)
+
+
+### create a job
+![create_a_job](./images/create_a_job.png)
+
+## Images
+### Retrieve A single image
+![retrieve_an_image](./images/retrieve_an_image.png)
+
+
+### edit an image
+![edit_image](./images/edit_image.png)
+
+### delete an image
+
+![delete_an_image](./images/delete_an_image.png)
+
+### List All images
+![list_all_images](./images/list_all_images.png)
+
+### create an image
+
+![create_an_image](./images/create_an_image.png)
+
+## Label
+
+### retrieve a label
+
+![retrieve_a_label](./images/retrieve_a_label.png)
+
+### edit a label
+
+![edit_a_label](./images/edit_a_label.png)
+
+### delete a label
+
+![delete_a_label](./images/delete_a_label.png)
+
+### create a label
+
+![create_a_label](./images/create_a_label.png)
+
 
