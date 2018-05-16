@@ -9,7 +9,7 @@
 ## Oneself
 验证是否可以获取个人ID。
 
-![Authorization](../images/authorization_test.png)
+![Authorization](./images/authorization.png)
 
 
 ## Authorization
@@ -17,30 +17,30 @@
 
 ### Create Authorization
 
-![login](../images/login_test.png)
+![login](./images/login.png)
 
 ### Remove Authorization
 
-![logout](../images/logout_test.png)
+![logout](./images/logout.png)
 
 ## Accounts
 
 ### Retrieve Account
 
-![Retrieve Account](../images/retrieve_account_test.png)
+![Retrieve Account](./images/retrieve_account.png)
 
 ### Edit Account
 
-![Edit Account](../images/authorization_test.png)
+![Edit Account](./images/edit_account.png)
 
 ### Delete Account
-![delete_account](../images/delete_account.png)
+![delete_account](./images/delete_account.png)
 
 ### List Accounts
 
-![list_accounts](../images/list_accounts.png)
+![list_accounts](./images/list_accounts.png)
 
 ### Create Accounts
-![create_account](../images/create_account.png)
+![create_account](./images/create_account.png)
 
 
