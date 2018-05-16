@@ -333,6 +333,42 @@ The *id* is assigned by the server at the moment of creation.
                 "finish_date": "2018-04-17"
             }
 
++ Response 404
+
+    + Headers
+
+            Last-Modified: 2018-04-17
+
+    + Body
+
+            {
+                "message": "任务不存在"
+            }
+
++ Response 401
+
+    + Headers
+
+            Last-Modified: 2018-04-17
+
+    + Body
+
+            {
+                "message": "用户未登录"
+            }
+
++ Response 401
+
+    + Headers
+
+            Last-Modified: 2018-04-17
+
+    + Body
+
+            {
+                "message": "用户无法访问他人任务"
+            }
+
 ### Edit a Job [PUT]
 To update a job, send a JSON with updated value for All of the job resource attributes EXCEPT id.
 
@@ -370,6 +406,7 @@ To update a job, send a JSON with updated value for All of the job resource attr
                 "state": "unlabeled",
                 "finish_date": "2018-04-17"
             }
+
 
 
 ### Delete a Job [DELETE]
