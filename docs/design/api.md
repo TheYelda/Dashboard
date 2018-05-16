@@ -1,3 +1,13 @@
+**Notice:**
+
+For MUCH better reading experience, please read the document at [theyelda.docs.apiary.io](https://theyelda.docs.apiary.io/#).
+
+---
+
+
+
+FORMAT: 1A HOST: http://localhost
+
 FORMAT: 1A
 HOST: http://localhost
 
@@ -109,7 +119,7 @@ Authorization Resource represents an authorization granted to the user. You can 
     + Headers
 
             Accept: application/json
-            
+        
     + Body
 
             {
@@ -142,7 +152,7 @@ A single account object. The account resource has the following attributes:
     + Headers
 
             Accept: application/json
-            
+        
     + Body
 
             {
@@ -190,7 +200,7 @@ The *id* is assigned by the server at the moment of creation.
     + Headers
 
             Accept: application/json
-            
+        
     + Body
 
             {
@@ -219,7 +229,7 @@ The *id* is assigned by the server at the moment of creation.
             {
                 "message": "用户无法访问他人账号"
             }
-            
+        
 + Response 404
 
             {
@@ -234,7 +244,7 @@ To update an account, send a JSON with updated value for All of the account reso
     + Headers
 
             Accept: application/json
-            
+        
     + Body
 
             {
@@ -250,7 +260,7 @@ To update an account, send a JSON with updated value for All of the account reso
     + Headers
 
             Last-Modified: 2018-04-17
-            
+        
     + Body
 
             {
@@ -261,7 +271,7 @@ To update an account, send a JSON with updated value for All of the account reso
                 "photo": "photo1",
                 "authority": 1
             }
-            
+    
 + Response 401
 
             {
@@ -279,7 +289,7 @@ To update an account, send a JSON with updated value for All of the account reso
             {
                 "message": "管理员无法修改本账号权限"
             }
-            
+        
 + Response 401
 
             {
@@ -307,7 +317,7 @@ To update an account, send a JSON with updated value for All of the account reso
             {
                 "message": "用户无法删除他人账号"
             }
-            
+        
 + Response 401
 
             {
@@ -334,7 +344,7 @@ Collection of all accounts.
     + Headers
 
             Accept: application/json
-            
+        
     + Body
 
             {
@@ -391,7 +401,7 @@ To create a new account simply provide a JSON. This action requires an `authorit
     + Headers
 
             Accept: application/json
-            
+        
     + Body
 
             {
@@ -407,7 +417,7 @@ To create a new account simply provide a JSON. This action requires an `authorit
     + Headers
 
             Location: /accounts/100
-            
+        
     + Body
 
             {
@@ -442,7 +452,7 @@ The *id* is assigned by the server at the moment of creation.
     + Headers
 
             Accept: application/json
-            
+        
     + Body
 
             {
@@ -525,7 +535,7 @@ To update a job, send a JSON with updated value for All of the job resource attr
     + Headers
 
             Location: /jobs/1
-            
+        
     + Body
 
             {
@@ -543,7 +553,7 @@ To update a job, send a JSON with updated value for All of the job resource attr
     + Headers
 
             Location: /jobs/1
-            
+        
     + Body
 
             {
@@ -555,7 +565,7 @@ To update a job, send a JSON with updated value for All of the job resource attr
     + Headers
 
             Location: /jobs/1
-            
+        
     + Body
 
             {
@@ -567,7 +577,7 @@ To update a job, send a JSON with updated value for All of the job resource attr
     + Headers
 
             Location: /jobs/1
-            
+        
     + Body
 
             {
@@ -582,7 +592,7 @@ To update a job, send a JSON with updated value for All of the job resource attr
     + Headers
 
             Location: /jobs/1
-            
+        
     + Body
 
             {
@@ -593,7 +603,7 @@ To update a job, send a JSON with updated value for All of the job resource attr
     + Headers
 
             Location: /jobs/1
-            
+        
     + Body
 
             {
@@ -605,7 +615,7 @@ To update a job, send a JSON with updated value for All of the job resource attr
     + Headers
 
             Location: /jobs/1
-            
+        
     + Body
 
             {
@@ -625,7 +635,7 @@ Collection of all jobs.
     + Headers
 
             Accept: application/json
-            
+        
     + Body
 
             {
@@ -700,7 +710,7 @@ To create a new job simply with a JSON. This action requires an `authority` of `
     + Headers
 
             Accept: application/json
-            
+        
     + Body
 
             {
@@ -713,7 +723,7 @@ To create a new job simply with a JSON. This action requires an `authority` of `
     + Headers
 
             Location: /jobs/1
-            
+        
     + Body
 
             {
@@ -730,7 +740,7 @@ To create a new job simply with a JSON. This action requires an `authority` of `
     + Headers
 
             Location: /jobs/1
-            
+        
     + Body
 
             {
@@ -742,7 +752,7 @@ To create a new job simply with a JSON. This action requires an `authority` of `
     + Headers
 
             Location: /jobs/1
-            
+        
     + Body
 
             {
@@ -769,7 +779,7 @@ The *id* is assigned by the server at the moment of creation.
     + Headers
 
             Accept: application/json
-            
+        
     + Body
 
             {
@@ -826,7 +836,7 @@ To update an image, send a JSON with updated value for All of the image resource
     + Headers
 
             Location: /images/1
-            
+        
     + Body
 
             {
@@ -842,7 +852,7 @@ To update an image, send a JSON with updated value for All of the image resource
     + Headers
 
             Location: /images/1
-            
+        
     + Body
 
             {
@@ -854,7 +864,7 @@ To update an image, send a JSON with updated value for All of the image resource
     + Headers
 
             Location: /images/1
-            
+        
     + Body
 
             {
@@ -868,7 +878,7 @@ To update an image, send a JSON with updated value for All of the image resource
     + Headers
 
             Location: /images/1
-            
+        
     + Body
 
             {
@@ -879,7 +889,7 @@ To update an image, send a JSON with updated value for All of the image resource
     + Headers
 
             Location: /images/1
-            
+        
     + Body
 
             {
@@ -891,7 +901,7 @@ To update an image, send a JSON with updated value for All of the image resource
     + Headers
 
             Location: /images/1
-            
+        
     + Body
 
             {
@@ -912,7 +922,7 @@ Collection of all images.
     + Headers
 
             Accept: application/json
-            
+        
     + Body
 
             {
@@ -954,7 +964,7 @@ Collection of all images.
     + Headers
 
             Location: /images/1
-            
+        
     + Body
 
             {
@@ -969,7 +979,7 @@ To create a new image simply with a JSON. This action requires an `authority` of
     + Headers
 
             Accept: application/json
-            
+        
     + Body
 
             {
@@ -981,7 +991,7 @@ To create a new image simply with a JSON. This action requires an `authority` of
     + Headers
 
             Location: /images/1
-            
+        
     + Body
 
             {
@@ -996,7 +1006,7 @@ To create a new image simply with a JSON. This action requires an `authority` of
     + Headers
 
             Location: /images/1
-            
+        
     + Body
 
             {
@@ -1008,7 +1018,7 @@ To create a new image simply with a JSON. This action requires an `authority` of
     + Headers
 
             Location: /images/1
-            
+        
     + Body
 
             {
@@ -1044,7 +1054,7 @@ The *id* is assigned by the server at the moment of creation.
     + Headers
 
             Accept: application/json
-            
+        
     + Body
 
             {
@@ -1130,7 +1140,7 @@ To update a label, send a JSON with updated value for All of the label resource 
     + Headers
 
             Last-Modified: 2018-04-17
-            
+        
     + Body
 
             {
@@ -1155,7 +1165,7 @@ To update a label, send a JSON with updated value for All of the label resource 
     + Headers
 
             Location: /images/1
-            
+        
     + Body
 
             {
@@ -1167,7 +1177,7 @@ To update a label, send a JSON with updated value for All of the label resource 
     + Headers
 
             Location: /images/1
-            
+        
     + Body
 
             {
@@ -1179,7 +1189,7 @@ To update a label, send a JSON with updated value for All of the label resource 
     + Headers
 
             Location: /images/1
-            
+        
     + Body
 
             {
@@ -1193,7 +1203,7 @@ To update a label, send a JSON with updated value for All of the label resource 
     + Headers
 
             Location: /images/1
-            
+        
     + Body
 
             {
@@ -1205,7 +1215,7 @@ To update a label, send a JSON with updated value for All of the label resource 
     + Headers
 
             Location: /images/1
-            
+        
     + Body
 
             {
@@ -1217,7 +1227,7 @@ To update a label, send a JSON with updated value for All of the label resource 
     + Headers
 
             Location: /images/1
-            
+        
     + Body
 
             {
@@ -1235,7 +1245,7 @@ To create a new image simply with a JSON. This action requires an `authority` of
     + Headers
 
             Accept: application/json
-            
+        
     + Body
 
             {
@@ -1259,7 +1269,7 @@ To create a new image simply with a JSON. This action requires an `authority` of
     + Headers
 
             Last-Modified: 2018-04-17
-            
+        
     + Body
 
             {
@@ -1284,7 +1294,7 @@ To create a new image simply with a JSON. This action requires an `authority` of
     + Headers
 
             Location: /images/1
-            
+        
     + Body
 
             {
