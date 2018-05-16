@@ -1,7 +1,3 @@
-***Notice:***
-
-**For MUCH better reading experience, please read the document at [theyelda.docs.apiary.io](https://theyelda.docs.apiary.io/#reference).**
-
 FORMAT: 1A
 HOST: http://localhost
 
@@ -45,6 +41,14 @@ HAL links.
                 }
             }
 
++ Response 400
+
+    + Body
+
+            {
+                "message": "请求非法"
+            }
+
 # Group Access Authorization and Control
 Access and Control of *The Yelda API* OAuth token.
 
@@ -67,16 +71,36 @@ Authorization Resource represents an authorization granted to the user. You can 
 
 + Response 201
 
-    + Headers
-
-            Location: /accounts/1
-
     + Body
 
             {
                 "message": "登录成功",
                 "account_id": 123,
-                "authority_id": 1
+                "authority": 1
+            }
+
++ Response 401
+
+    + Body
+
+            {
+                "message": "用户不存在"
+            }
+
++ Response 401
+
+    + Body
+
+            {
+                "message": "密码错误"
+            }
+
++ Response 401
+
+    + Body
+
+            {
+                "message": "用户审核未通过"
             }
 
 ### Remove an Authorization [DELETE]
@@ -94,15 +118,24 @@ Authorization Resource represents an authorization granted to the user. You can 
 
 + Response 204
 
+            {
+            }
+
++ Response 401
+
+            {
+                "message": "用户未登录"
+            }
+
 # Group Self
 Myself-related resources of *The Yelda API*.
 
-## a Single Self [/self]
+## a Single Self [/Self]
 A single account object. The account resource has the following attributes:
 
-+ account_id
++ id
 
-### Retrieve a Single Oneself [GET]
+### Retrieve a Single Self [GET]
 
 + Request (application/json)
 
@@ -128,6 +161,11 @@ A single account object. The account resource has the following attributes:
                 "account_id": 123
             }
 
++ Response 401
+
+            {
+                "message": "用户未登录"
+            }
 
 # Group Account
 Account-related resources of *The Yelda API*.
@@ -135,7 +173,7 @@ Account-related resources of *The Yelda API*.
 ## a Single Account [/accounts/{account_id}]
 A single account object. The account resource has the following attributes:
 
-+ account_id
++ id
 + username
 + nickname
 + password
@@ -167,13 +205,25 @@ The *id* is assigned by the server at the moment of creation.
     + Body
 
             {
-                "message": "账户获取成功",
+                "message": "用户获取成功",
                 "account_id": 364,
                 "username": "yelda",
                 "nickname": "Nick",
                 "email": "yelda@mail.com",
                 "photo": "photo1",
                 "authority": "admin"
+            }
+
++ Response 401
+
+            {
+                "message": "用户无法访问他人账号"
+            }
+            
++ Response 404
+
+            {
+                "message": "用户不存在"
             }
 
 ### Edit an Account [PUT]
@@ -204,14 +254,43 @@ To update an account, send a JSON with updated value for All of the account reso
     + Body
 
             {
-                "message": "账户编辑成功",
+                "message": "用户修改成功",
                 "username": "yelda",
                 "nickname": "Nick",
                 "email": "yelda@mail.com",
                 "photo": "photo1",
                 "authority": 1
             }
+            
++ Response 401
 
+            {
+                "message": "用户无法修改他人信息"
+            }
+
++ Response 401
+
+            {
+                "message": "用户无法修改权限"
+            }
+
++ Response 401
+
+            {
+                "message": "管理员无法修改本账号权限"
+            }
+            
++ Response 401
+
+            {
+                "message": "管理员无法修改他人权限为管理员"
+            }
+
++ Response 404
+
+            {
+                "message": "用户不存在"
+            }
 
 ### Delete an Account [DELETE]
 
@@ -220,8 +299,27 @@ To update an account, send a JSON with updated value for All of the account reso
     + Body
 
             {
-                "message": "账户删除成功"
+                "message": "用户删除成功"
             }
+
++ Response 401
+
+            {
+                "message": "用户无法删除他人账号"
+            }
+            
++ Response 401
+
+            {
+                "message": "管理员不可删除"
+            }
+
++ Response 404
+
+            {
+                "message": "用户不存在"
+            }
+
 
 ## Accounts Collection [/accounts/{?username}]
 Collection of all accounts.
@@ -251,7 +349,7 @@ Collection of all accounts.
     + Body
 
             {
-                "message": "账户集合获取成功",
+                "message": "用户集合获取成功",
                 "data":
                         [
                             {
@@ -260,23 +358,29 @@ Collection of all accounts.
                                 "nickname": "Nick",
                                 "email": "yelda@mail.com",
                                 "photo": "photo1",
-                                "authority": "admin"
+                                "authority": "doctor"
                             }, {
                                 "id": 23,
                                 "username": "yelda2",
                                 "nickname": "Nick2",
                                 "email": "yelda2@mail.com",
                                 "photo": "photo2",
-                                "authority": "admin"
+                                "authority": "doctor"
                             }, {
                                 "id": 34,
                                 "username": "yelda3",
                                 "nickname": "Nick2",
                                 "email": "yelda3@mail.com",
                                 "photo": "photo3",
-                                "authority": "admin"
+                                "authority": "doctor"
                             }
                         ]
+            }
+
++ Response 401
+
+            {
+                "message": "用户无法查看他人账号"
             }
 
 ### Create an Account [POST]
@@ -307,7 +411,13 @@ To create a new account simply provide a JSON. This action requires an `authorit
     + Body
 
             {
-                "message": "注册成功"
+                "message": "用户创建成功"
+            }
+
++ Response 409
+
+            {
+                "message": "用户名已存在"
             }
 
 # Group Job
@@ -355,6 +465,41 @@ The *id* is assigned by the server at the moment of creation.
                 "state": "unlabeled",
                 "finished_date": "2018-04-17"
             }
++ Response 404
+
+    + Headers
+
+            Last-Modified: 2018-04-17
+
+    + Body
+
+            {
+                "message": "任务不存在"
+            }
+
++ Response 401
+
+    + Headers
+
+            Last-Modified: 2018-04-17
+
+    + Body
+
+            {
+                "message": "用户未登录"
+            }
+
++ Response 401
+
+    + Headers
+
+            Last-Modified: 2018-04-17
+
+    + Body
+
+            {
+                "message": "用户无法访问他人任务"
+            }
 
 ### Edit a Job [PUT]
 To update a job, send a JSON with updated value for All of the job resource attributes EXCEPT id.
@@ -393,10 +538,79 @@ To update a job, send a JSON with updated value for All of the job resource attr
                 "finished_date": "2018-04-17"
             }
 
++ Response 401
+
+    + Headers
+
+            Location: /jobs/1
+            
+    + Body
+
+            {
+                "message": "用户未登录"
+            }
+
++ Response 401
+
+    + Headers
+
+            Location: /jobs/1
+            
+    + Body
+
+            {
+                "message": "用户无法修改他人任务"
+            }
+
++ Response 401
+
+    + Headers
+
+            Location: /jobs/1
+            
+    + Body
+
+            {
+                "message": "用户无法修改已完成的任务"
+            }
+
 
 ### Delete a Job [DELETE]
 
 + Response 204
+
+    + Headers
+
+            Location: /jobs/1
+            
+    + Body
+
+            {
+                "message": "已删除该任务"
+            }
++ Response 401
+
+    + Headers
+
+            Location: /jobs/1
+            
+    + Body
+
+            {
+                "message": "用户未登录"
+            }
+
++ Response 401
+
+    + Headers
+
+            Location: /jobs/1
+            
+    + Body
+
+            {
+                "message": "删除任务需要管理员权限"
+            }
 
 ## Jobs Collection [/jobs/{?image_id}{?doctor_id}{?state}]
 Collection of all jobs.
@@ -454,6 +668,30 @@ Collection of all jobs.
                 ]
             }
 
++ Response 401
+
+    + Headers
+    
+            Last-Modified: 2018-04-17
+        
+    + Body
+
+            {
+                "message":"用户未登录"
+            }
+
++ Response 401
+
+    + Headers
+    
+            Last-Modified: 2018-04-17
+        
+    + Body
+
+            {
+                "message":"用户无法访问其他用户的任务列表"
+            }
+
 ### Create a Job [POST]
 To create a new job simply with a JSON. This action requires an `authority` of `admin` .
 
@@ -485,6 +723,30 @@ To create a new job simply with a JSON. This action requires an `authority` of `
                 "doctor_id": "1234",
                 "state": "unlabeled",
                 "finished_date": "2018-04-17"
+            }
+
++ Response 401
+
+    + Headers
+
+            Location: /jobs/1
+            
+    + Body
+
+            {
+                "message": "用户未登录"
+            }
+
++ Response 401
+
+    + Headers
+
+            Location: /jobs/1
+            
+    + Body
+
+            {
+                "message": "创建任务需要管理员权限"
             }
 
 # Group Image
@@ -529,6 +791,18 @@ The *id* is assigned by the server at the moment of creation.
                 "info_id": "123"
             }
 
++ Response 401
+
+    + Headers
+
+            Last-Modified: 2018-04-17
+
+    + Body
+
+            {
+                "message": "用户未登录"
+            }
+
 ### Edit an Image [PUT]
 To update an image, send a JSON with updated value for All of the image resource attributes EXCEPT id.
 
@@ -563,10 +837,66 @@ To update an image, send a JSON with updated value for All of the image resource
                 "info_id": "123"
             }
 
++ Response 401
+
+    + Headers
+
+            Location: /images/1
+            
+    + Body
+
+            {
+                "message": "用户未登录"
+            }
+
++ Response 401
+
+    + Headers
+
+            Location: /images/1
+            
+    + Body
+
+            {
+                "message": "修改图片信息需要管理员权限"
+            }
 
 ### Delete an Image [DELETE]
 
 + Response 204
+
+    + Headers
+
+            Location: /images/1
+            
+    + Body
+
+            {
+                "message": "已删除图片"
+            }
++ Response 401
+
+    + Headers
+
+            Location: /images/1
+            
+    + Body
+
+            {
+                "message": "用户未登录"
+            }
+
++ Response 401
+
+    + Headers
+
+            Location: /images/1
+            
+    + Body
+
+            {
+                "message": "删除图片需要管理员权限"
+            }
 
 ## Images Collection [/jobs/{?state}]
 Collection of all images.
@@ -619,6 +949,18 @@ Collection of all images.
                     ]
             }
 
++ Response 401
+
+    + Headers
+
+            Location: /images/1
+            
+    + Body
+
+            {
+                "message": "用户未登录"
+            }
+
 ### Create an Image [POST]
 To create a new image simply with a JSON. This action requires an `authority` of `admin` .
 
@@ -649,6 +991,29 @@ To create a new image simply with a JSON. This action requires an `authority` of
                 "info_id": "123"
             }
 
++ Response 401
+
+    + Headers
+
+            Location: /images/1
+            
+    + Body
+
+            {
+                "message": "用户未登录"
+            }
+
++ Response 401
+
+    + Headers
+
+            Location: /images/1
+            
+    + Body
+
+            {
+                "message": "创建图片需要管理员权限"
+            }
 
 # Group Label
 Label-related resources of *The Yelda API*.
@@ -710,6 +1075,30 @@ The *id* is assigned by the server at the moment of creation.
                 "comment": ""
             }
 
++ Response 401
+
+    + Headers
+
+            Last-Modified: 2018-04-17
+
+    + Body
+
+            {
+                "message": "用户未登录"
+            }
+
++ Response 401
+
+    + Headers
+
+            Last-Modified: 2018-04-17
+
+    + Body
+
+            {
+                "message": "用户无法访问其他用户的标注信息"
+            }
+
 ### Edit a Label [PUT]
 To update a label, send a JSON with updated value for All of the label resource attributes EXCEPT id.
 
@@ -761,10 +1150,79 @@ To update a label, send a JSON with updated value for All of the label resource 
                 "comment": ""
             }
 
++ Response 401
+
+    + Headers
+
+            Location: /images/1
+            
+    + Body
+
+            {
+                "message": "用户未登录"
+            }
+
++ Response 401
+
+    + Headers
+
+            Location: /images/1
+            
+    + Body
+
+            {
+                "message": "用户无法修改其他用户的标注信息"
+            }
+
++ Response 401
+
+    + Headers
+
+            Location: /images/1
+            
+    + Body
+
+            {
+                "message": "用户无法修改该标注信息"
+            }
 
 ### Delete an Label [DELETE]
 
 + Response 204
+
+    + Headers
+
+            Location: /images/1
+            
+    + Body
+
+            {
+                "message": "已删除标注信息"
+            }
+
++ Response 401
+
+    + Headers
+
+            Location: /images/1
+            
+    + Body
+
+            {
+                "message": "用户未登录"
+            }
+
++ Response 401
+
+    + Headers
+
+            Location: /images/1
+            
+    + Body
+
+            {
+                "message": "用户无法删除其他用户的标注"
+            }
 
 ## Labels Collection [/labels]
 Collection of all labels.
@@ -821,13 +1279,25 @@ To create a new image simply with a JSON. This action requires an `authority` of
                 "comment": ""
             }
 
++ Response 401
+
+    + Headers
+
+            Location: /images/1
+            
+    + Body
+
+            {
+                "message": "用户未登录"
+            }
+
 ## Codes
 
 ### Authority 1XX
 
 | code |  name  | description |
 | :--: | :----: | :---------: |
-| 100  |  Empty |             |
+| 100  |  None  |             |
 | 101  | Admin  |             |
 | 102  | Doctor |             |
 | 103  | Guest  |             |
@@ -849,4 +1319,6 @@ To create a new image simply with a JSON. This action requires an `authority` of
 | 301  |  Running   |             |
 | 302  | Different  |             |
 | 303  |    Done    |             |
+
+
 
