@@ -457,13 +457,13 @@ The *id* is assigned by the server at the moment of creation.
     + Body
 
             {
-                "message": "",
-                "id": "1",    
+                "message": "成功查看任务",
+                "job_id": "1",    
                 "image_id": "123",
-                "doctor_id": "1234",
                 "label_id": "12345",
-                "state": "unlabeled",
-                "finished_date": "2018-04-17"
+                "account_id": "1234",
+                "finished_date": "2018-04-17",
+                "job_state": "200"
             }
 + Response 404
 
@@ -489,7 +489,7 @@ The *id* is assigned by the server at the moment of creation.
                 "message": "用户未登录"
             }
 
-+ Response 401
++ Response 403
 
     + Headers
 
@@ -514,9 +514,9 @@ To update a job, send a JSON with updated value for All of the job resource attr
 
             {
                 "image_id": "123",
-                "doctor_id": "1234",
+                "account_id": "1234",
                 "label_id": "12345",
-                "state": "unlabeled",
+                "job_state": "200",
                 "finished_date": "2018-04-17"
             }
 
@@ -529,13 +529,13 @@ To update a job, send a JSON with updated value for All of the job resource attr
     + Body
 
             {
-                "message": "",
-                "id": "1",
+                "message": "成功编辑任务",
+                "job_id": "1",    
                 "image_id": "123",
-                "doctor_id": "1234",
                 "label_id": "12345",
-                "state": "unlabeled",
-                "finished_date": "2018-04-17"
+                "account_id": "1234",
+                "finished_date": "2018-04-17",
+                "job_state": "200"
             }
 
 + Response 401
@@ -550,7 +550,7 @@ To update a job, send a JSON with updated value for All of the job resource attr
                 "message": "用户未登录"
             }
 
-+ Response 401
++ Response 403
 
     + Headers
 
@@ -562,7 +562,7 @@ To update a job, send a JSON with updated value for All of the job resource attr
                 "message": "用户无法修改他人任务"
             }
 
-+ Response 401
++ Response 403
 
     + Headers
 
@@ -574,10 +574,21 @@ To update a job, send a JSON with updated value for All of the job resource attr
                 "message": "用户无法修改已完成的任务"
             }
 
++ Response 404
+
+    + Headers
+
+            Last-Modified: 2018-04-17
+
+    + Body
+
+            {
+                "message": "任务不存在"
+            }
 
 ### Delete a Job [DELETE]
 
-+ Response 204
++ Response 200
 
     + Headers
 
@@ -600,7 +611,7 @@ To update a job, send a JSON with updated value for All of the job resource attr
                 "message": "用户未登录"
             }
 
-+ Response 401
++ Response 403
 
     + Headers
 
@@ -612,11 +623,23 @@ To update a job, send a JSON with updated value for All of the job resource attr
                 "message": "删除任务需要管理员权限"
             }
 
-## Jobs Collection [/jobs/{?image_id}{?doctor_id}{?state}]
++ Response 404
+
+    + Headers
+
+            Last-Modified: 2018-04-17
+
+    + Body
+
+            {
+                "message": "任务不存在"
+            }
+
+## Jobs Collection [/jobs/{?account_id}]
 Collection of all jobs.
 
 + Parameters
-    + doctor_id: 1 (optional, int) - ID of the doctor who the job is assigned to in form of an integer
+    + account_id: 1 (optional, int) - ID of the doctor who the job is assigned to in form of an integer
 
 ### List All Jobs [GET]
 
@@ -640,30 +663,30 @@ Collection of all jobs.
     + Body
 
             {
-                "message":"",
+                "message":"成功获取所有任务",
                 "data":
                     [
                         {
-                            "id": "1",
+                            "job_id": "1",    
                             "image_id": "123",
-                            "doctor_id": "1234",
                             "label_id": "12345",
-                            "state": "unlabeled",
-                            "finished_date": "2018-04-17"
+                            "account_id": "1234",
+                            "finished_date": "2018-04-17",
+                            "job_state": "200"
                         }, {
-                            "id": "2",
-                            "image_id": "234",
-                            "doctor_id": "2345",
-                            "label_id": "23456",
-                            "state": "unlabeled",
-                            "finished_date": "2018-04-17"
+                            "job_id": "2",    
+                            "image_id": "456",
+                            "label_id": "6798",
+                            "account_id": "1234",
+                            "finished_date": "2018-04-17",
+                            "job_state": "200"
                         }, {
-                            "id": "3",
-                            "image_id": "345",
-                            "doctor_id": "3456",
-                            "label_id": "34567",
-                            "state": "unlabeled",
-                            "finished_date": "2018-04-17"
+                            "job_id": "3",    
+                            "image_id": "756",
+                            "label_id": "9798",
+                            "account_id": "1834",
+                            "finished_date": "2018-04-17",
+                            "job_state": "200"
                         }
                 ]
             }
@@ -680,7 +703,7 @@ Collection of all jobs.
                 "message":"用户未登录"
             }
 
-+ Response 401
++ Response 403
 
     + Headers
     
@@ -705,7 +728,7 @@ To create a new job simply with a JSON. This action requires an `authority` of `
 
             {
                 "image_id": "123",
-                "doctor_id": "1234"
+                "account_id": "1234"
             }
 
 + Response 201
@@ -717,12 +740,13 @@ To create a new job simply with a JSON. This action requires an `authority` of `
     + Body
 
             {
-                "message": "",
-                "id": "1",
-                "image_id": "123",
-                "doctor_id": "1234",
-                "state": "unlabeled",
-                "finished_date": "2018-04-17"
+                "message": "任务创建成功",
+                "job_id": "3",    
+                "image_id": "756",
+                "label_id": "9798",
+                "account_id": "1834",
+                "finished_date": "2018-04-17",
+                "job_state": "200"
             }
 
 + Response 401
@@ -737,7 +761,7 @@ To create a new job simply with a JSON. This action requires an `authority` of `
                 "message": "用户未登录"
             }
 
-+ Response 401
++ Response 403
 
     + Headers
 
@@ -1294,7 +1318,7 @@ To create a new image simply with a JSON. This action requires an `authority` of
             {
                 "message": "用户未登录"
             }
-
+         
 ## Codes
 
 ### Authority 1XX
@@ -1323,6 +1347,3 @@ To create a new image simply with a JSON. This action requires an `authority` of
 | 301  |  Running   |             |
 | 302  | Different  |             |
 | 303  |    Done    |             |
-
-
-
