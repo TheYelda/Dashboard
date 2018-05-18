@@ -1059,20 +1059,21 @@ The *id* is assigned by the server at the moment of creation.
     + Body
 
             {
-                "message": "",
-                "id": "1",    
-                "quality": "",
-                "dr": "",
-                "stage": "",
-                "dme": "",
-                "hr": "",
-                "agedme": "",
-                "rvo": "",
-                "crao": "",
-                "myopia": "",
-                "od": "",
-                "glaucoma": "",
-                "comment": ""
+                "label_id": 1,
+                "quality": true,
+                "dr": false,
+                "stage": "2",
+                "dme": true,
+                "hr": "1",
+                "age_dme": "1",
+                "rvo": true,
+                "crao": true,
+                "myopia": true,
+                "od": true,
+                "glaucoma": true,
+                "others": true,
+                "comment": "1",
+                "message": "label获取成功"
             }
 
 + Response 401
@@ -1111,18 +1112,19 @@ To update a label, send a JSON with updated value for All of the label resource 
     + Body
 
             {
-                "quality": "",
-                "dr": "",
-                "stage": "",
-                "dme": "",
-                "hr": "",
-                "agedme": "",
-                "rvo": "",
-                "crao": "",
-                "myopia": "",
-                "od": "",
-                "glaucoma": "",
-                "comment": ""
+                "quality":true,
+                "dr":false,
+                "stage":"3",
+                "dme":true,
+                "hr":"1",
+                "age_dme":"1",
+                "rvo":true,
+                "crao":true,
+                "myopia":true,
+                "od":true,
+                "glaucoma":true,
+                "others":true,
+                "comment":"1"
             }
 
 + Response 200
@@ -1134,20 +1136,20 @@ To update a label, send a JSON with updated value for All of the label resource 
     + Body
 
             {
-                "message": "",
-                "id": "1",    
-                "quality": "",
-                "dr": "",
-                "stage": "",
-                "dme": "",
-                "hr": "",
-                "agedme": "",
-                "rvo": "",
-                "crao": "",
-                "myopia": "",
-                "od": "",
-                "glaucoma": "",
-                "comment": ""
+              "quality": true,
+              "dr": false,
+              "stage": "3",
+              "dme": true,
+              "hr": "1",
+              "age_dme": "1",
+              "rvo": true,
+              "crao": true,
+              "myopia": true,
+              "od": true,
+              "glaucoma": true,
+              "others": true,
+              "comment": "1",
+              "message": "label修改成功"
             }
 
 + Response 401
@@ -1239,19 +1241,19 @@ To create a new image simply with a JSON. This action requires an `authority` of
     + Body
 
             {
-                "id": "1",    
-                "quality": "",
-                "dr": "",
-                "stage": "",
-                "dme": "",
-                "hr": "",
-                "agedme": "",
-                "rvo": "",
-                "crao": "",
-                "myopia": "",
-                "od": "",
-                "glaucoma": "",
-                "comment": ""
+                "quality":true,
+                "dr":false,
+                "stage":"2",
+                "dme":true,
+                "hr":"1",
+                "age_dme":"1",
+                "rvo":true,
+                "crao":true,
+                "myopia":true,
+                "od":true,
+                "glaucoma":true,
+                "others":true,
+                "comment":"1"
             }
 
 + Response 201
@@ -1263,20 +1265,22 @@ To create a new image simply with a JSON. This action requires an `authority` of
     + Body
 
             {
-                "message": "",
-                "id": "1",    
-                "quality": "",
-                "dr": "",
-                "stage": "",
-                "dme": "",
-                "hr": "",
-                "agedme": "",
-                "rvo": "",
-                "crao": "",
-                "myopia": "",
-                "od": "",
-                "glaucoma": "",
-                "comment": ""
+              "label_id": 4,
+              "quality": true,
+              "dr": false,
+              "stage": "2",
+              "dme": true,
+              "hr": "1",
+              "age_dme": "1",
+              "rvo": true,
+              "crao": true,
+              "myopia": true,
+              "od": true,
+              "glaucoma": true,
+              "others": true,
+              "comment": "1",
+              "message": "创建成功"
+
             }
 
 + Response 401
