@@ -76,7 +76,7 @@ Authorization Resource represents an authorization granted to the user. You can 
             {
                 "message": "登录成功",
                 "account_id": 123,
-                "authority": 1
+                "authority": 101
             }
 
 + Response 401
@@ -211,7 +211,7 @@ The *id* is assigned by the server at the moment of creation.
                 "nickname": "Nick",
                 "email": "yelda@mail.com",
                 "photo": "photo1",
-                "authority": "admin"
+                "authority": 101
             }
 
 + Response 401
@@ -242,7 +242,7 @@ To update an account, send a JSON with updated value for All of the account reso
                 "password": "mypass",
                 "email": "yelda@mail.com",
                 "photo": "photo1",
-                "authority": 1
+                "authority": 102
             }
 
 + Response 200
@@ -259,7 +259,7 @@ To update an account, send a JSON with updated value for All of the account reso
                 "nickname": "Nick",
                 "email": "yelda@mail.com",
                 "photo": "photo1",
-                "authority": 1
+                "authority": 102
             }
             
 + Response 401
@@ -358,21 +358,21 @@ Collection of all accounts.
                                 "nickname": "Nick",
                                 "email": "yelda@mail.com",
                                 "photo": "photo1",
-                                "authority": "doctor"
+                                "authority": 101
                             }, {
                                 "id": 23,
                                 "username": "yelda2",
                                 "nickname": "Nick2",
                                 "email": "yelda2@mail.com",
                                 "photo": "photo2",
-                                "authority": "doctor"
+                                "authority": 102
                             }, {
                                 "id": 34,
                                 "username": "yelda3",
                                 "nickname": "Nick2",
                                 "email": "yelda3@mail.com",
                                 "photo": "photo3",
-                                "authority": "doctor"
+                                "authority": 103
                             }
                         ]
             }
