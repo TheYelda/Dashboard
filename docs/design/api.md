@@ -3,6 +3,10 @@ HOST: http://localhost
 
 # TheYelda
 
+## Notice:
+
+For MUCH better reading experience, please read the document at [theyelda.docs.apiary.io](https://theyelda.docs.apiary.io/#).
+
 TheYelda is a simple API for a medical images viewing system.
 
 ## Authentication
@@ -14,7 +18,7 @@ Where applicable this API uses the [HAL+JSON](https://github.com/mikekelly/hal_s
 Requests with a message-body are using plain JSON to set or update resource states.
 
 ## Error States
-The common [HTTP Response Status Codes](https://github.com/TheYelda/Dashboard/blob/master/http_status_codes_reference.md) are used.
+The common [HTTP Response Status Codes](https://github.com/TheYelda/Dashboard/blob/master/docs/development_standard/http_status_codes_reference.md) are used.
 
 # TheYelda API Root [/]
 TheYelda API entry point.
@@ -76,7 +80,7 @@ Authorization Resource represents an authorization granted to the user. You can 
             {
                 "message": "登录成功",
                 "account_id": 123,
-                "authority": 1
+                "authority": 101
             }
 
 + Response 401
@@ -130,7 +134,7 @@ Authorization Resource represents an authorization granted to the user. You can 
 # Group Self
 Myself-related resources of *The Yelda API*.
 
-## a Single Self [/Self]
+## a Single Self [/self/]
 A single account object. The account resource has the following attributes:
 
 + id
@@ -173,7 +177,7 @@ Account-related resources of *The Yelda API*.
 ## a Single Account [/accounts/{account_id}]
 A single account object. The account resource has the following attributes:
 
-+ id
++ account_id
 + username
 + nickname
 + password
@@ -210,8 +214,8 @@ The *id* is assigned by the server at the moment of creation.
                 "username": "yelda",
                 "nickname": "Nick",
                 "email": "yelda@mail.com",
-                "photo": "photo1",
-                "authority": "admin"
+                "photo": "photo1.png",
+                "authority": 101
             }
 
 + Response 401
@@ -241,8 +245,8 @@ To update an account, send a JSON with updated value for All of the account reso
                 "nickname": "Nick",
                 "password": "mypass",
                 "email": "yelda@mail.com",
-                "photo": "photo1",
-                "authority": 1
+                "photo": "photo1.png",
+                "authority": 102
             }
 
 + Response 200
@@ -258,8 +262,8 @@ To update an account, send a JSON with updated value for All of the account reso
                 "username": "yelda",
                 "nickname": "Nick",
                 "email": "yelda@mail.com",
-                "photo": "photo1",
-                "authority": 1
+                "photo": "photo2.png",
+                "authority": 102
             }
             
 + Response 401
@@ -299,7 +303,7 @@ To update an account, send a JSON with updated value for All of the account reso
     + Body
 
             {
-                "message": "用户删除成功"
+                
             }
 
 + Response 401
@@ -357,22 +361,22 @@ Collection of all accounts.
                                 "username": "yelda",
                                 "nickname": "Nick",
                                 "email": "yelda@mail.com",
-                                "photo": "photo1",
-                                "authority": "doctor"
+                                "photo": "photo1.png",
+                                "authority": 102
                             }, {
                                 "id": 23,
                                 "username": "yelda2",
                                 "nickname": "Nick2",
                                 "email": "yelda2@mail.com",
-                                "photo": "photo2",
-                                "authority": "doctor"
+                                "photo": "photo2.png",
+                                "authority": 102
                             }, {
                                 "id": 34,
                                 "username": "yelda3",
                                 "nickname": "Nick2",
                                 "email": "yelda3@mail.com",
-                                "photo": "photo3",
-                                "authority": "doctor"
+                                "photo": "photo3.png",
+                                "authority": 102
                             }
                         ]
             }
@@ -398,8 +402,7 @@ To create a new account simply provide a JSON. This action requires an `authorit
                 "username": "yelda100",
                 "nickname": "Nick",
                 "password": "yeldapass100",
-                "email": "yelda100@mail.com",
-                "photo": "photo100"
+                "email": "yelda100@mail.com"
             }
 
 + Response 201
@@ -423,14 +426,14 @@ To create a new account simply provide a JSON. This action requires an `authorit
 # Group Job
 Job-related resources of *The Yelda API*.
 
-## a Single Job [/jobs/{id}]
+## a Single Job [/jobs/{jod_id}]
 A single job object. The job resource has the following attributes:
 
-+ id
++ job_id
 + image_id
 + doctor_id
 + label_id
-+ state
++ job_state
 + finished_date
 
 The *id* is assigned by the server at the moment of creation.
@@ -458,11 +461,11 @@ The *id* is assigned by the server at the moment of creation.
 
             {
                 "message": "",
-                "id": "1",    
-                "image_id": "123",
-                "doctor_id": "1234",
-                "label_id": "12345",
-                "state": "unlabeled",
+                "jod_id": 132,    
+                "image_id": 427,
+                "doctor_id": 42,
+                "label_id": 88,
+                "job_state": 200,
                 "finished_date": "2018-04-17"
             }
 + Response 404
@@ -513,10 +516,10 @@ To update a job, send a JSON with updated value for All of the job resource attr
     + Body
 
             {
-                "image_id": "123",
-                "doctor_id": "1234",
-                "label_id": "12345",
-                "state": "unlabeled",
+                "image_id": 427,
+                "doctor_id": 42,
+                "label_id": 88,
+                "job_state": 204,
                 "finished_date": "2018-04-17"
             }
 
@@ -529,12 +532,12 @@ To update a job, send a JSON with updated value for All of the job resource attr
     + Body
 
             {
-                "message": "",
-                "id": "1",
-                "image_id": "123",
-                "doctor_id": "1234",
-                "label_id": "12345",
-                "state": "unlabeled",
+                "message": "任务修改成功",
+                "jod_id": 132,    
+                "image_id": 427,
+                "doctor_id": 42,
+                "label_id": 88,
+                "job_state": 200,
                 "finished_date": "2018-04-17"
             }
 
@@ -586,7 +589,7 @@ To update a job, send a JSON with updated value for All of the job resource attr
     + Body
 
             {
-                "message": "已删除该任务"
+                
             }
 + Response 401
 
@@ -612,11 +615,13 @@ To update a job, send a JSON with updated value for All of the job resource attr
                 "message": "删除任务需要管理员权限"
             }
 
-## Jobs Collection [/jobs/{?image_id}{?doctor_id}{?state}]
+## Jobs Collection [/jobs/{?image_id}{?doctor_id}{?job_state}]
 Collection of all jobs.
 
 + Parameters
+    + image_id: 1 (optional, int) - ID of the image which the job contains in form of an integer
     + doctor_id: 1 (optional, int) - ID of the doctor who the job is assigned to in form of an integer
+    + job_state: 1 (optional, int) - code of a job state in form of an integer
 
 ### List All Jobs [GET]
 
@@ -640,29 +645,29 @@ Collection of all jobs.
     + Body
 
             {
-                "message":"",
+                "message":"任务集合获取成功",
                 "data":
                     [
                         {
-                            "id": "1",
-                            "image_id": "123",
-                            "doctor_id": "1234",
-                            "label_id": "12345",
-                            "state": "unlabeled",
+                            "jod_id": 132,    
+                            "image_id": 427,
+                            "doctor_id": 42,
+                            "label_id": 88,
+                            "job_state": 200,
                             "finished_date": "2018-04-17"
                         }, {
-                            "id": "2",
-                            "image_id": "234",
-                            "doctor_id": "2345",
-                            "label_id": "23456",
-                            "state": "unlabeled",
+                            "jod_id": 1234,    
+                            "image_id": 427,
+                            "doctor_id": 42,
+                            "label_id": 88,
+                            "job_state": 200,
                             "finished_date": "2018-04-17"
                         }, {
-                            "id": "3",
-                            "image_id": "345",
-                            "doctor_id": "3456",
-                            "label_id": "34567",
-                            "state": "unlabeled",
+                            "jod_id": 352,    
+                            "image_id": 427,
+                            "doctor_id": 42,
+                            "label_id": 88,
+                            "job_state": 200,
                             "finished_date": "2018-04-17"
                         }
                 ]
@@ -704,8 +709,8 @@ To create a new job simply with a JSON. This action requires an `authority` of `
     + Body
 
             {
-                "image_id": "123",
-                "doctor_id": "1234"
+                "image_id": 42,
+                "doctor_id": 253
             }
 
 + Response 201
@@ -717,11 +722,12 @@ To create a new job simply with a JSON. This action requires an `authority` of `
     + Body
 
             {
-                "message": "",
-                "id": "1",
-                "image_id": "123",
-                "doctor_id": "1234",
-                "state": "unlabeled",
+                "message": "任务创建成功",
+                "jod_id": 132,    
+                "image_id": 427,
+                "doctor_id": 42,
+                "label_id": 88,
+                "job_state": 200,
                 "finished_date": "2018-04-17"
             }
 
@@ -752,13 +758,14 @@ To create a new job simply with a JSON. This action requires an `authority` of `
 # Group Image
 Image-related resources of *The Yelda API*.
 
-## a Single Image [/images/{id}]
+## a Single Image [/images/{image_id}]
 A single image object. The image resource has the following attributes:
 
-+ id
-+ groundtruth_id
++ image_id
++ label_id
 + state
-+ info_id
++ filename
++ source
 
 The *id* is assigned by the server at the moment of creation.
 
@@ -784,11 +791,12 @@ The *id* is assigned by the server at the moment of creation.
     + Body
 
             {
-                "message": "",
-                "id": "1",    
-                "groundtruth_id": "123",
-                "state": "unassigned",
-                "info_id": "123"
+                "message": "图像获取成功",
+                "image_id": 432,    
+                "label_id": 67,
+                "state": 300,
+                "filename": "image1.png",
+                "source": "someone"
             }
 
 + Response 401
@@ -815,10 +823,11 @@ To update an image, send a JSON with updated value for All of the image resource
     + Body
 
             {
-                "id": "1",
-                "groundtruth_id": "123",
-                "state": "assigned",
-                "info_id": "123"
+                "image_id": 432,
+                "label_id": 67,
+                "state": 300,
+                "filename": "image1.png",
+                "source": "somexxx"
             }
 
 + Response 200
@@ -830,11 +839,12 @@ To update an image, send a JSON with updated value for All of the image resource
     + Body
 
             {
-                "message": "",
-                "id": "1",
-                "groundtruth_id": "123",
-                "state": "assigned",
-                "info_id": "123"
+                "message": "图像信息修改成功",
+                "image_id": 432,
+                "label_id": 67,
+                "state": 300,
+                "filename": "image1.png",
+                "source": "somexxx"
             }
 
 + Response 401
@@ -858,7 +868,7 @@ To update an image, send a JSON with updated value for All of the image resource
     + Body
 
             {
-                "message": "修改图片信息需要管理员权限"
+                "message": "修改图像信息需要管理员权限"
             }
 
 ### Delete an Image [DELETE]
@@ -872,7 +882,7 @@ To update an image, send a JSON with updated value for All of the image resource
     + Body
 
             {
-                "message": "已删除图片"
+                "message": "已删除图像"
             }
 + Response 401
 
@@ -895,15 +905,15 @@ To update an image, send a JSON with updated value for All of the image resource
     + Body
 
             {
-                "message": "删除图片需要管理员权限"
+                "message": "删除图像需要管理员权限"
             }
 
-## Images Collection [/jobs/{?state}]
+## Images Collection [/images/{?state}]
 Collection of all images.
 
 
 + Parameters
-    + state: "unassigned" (optional, string) - ID of the image in form of a string
+    + state: 301 (optional, int) - state of the image in form of a constant integer code
 
 ### List All Images [GET]
 
@@ -927,24 +937,27 @@ Collection of all images.
     + Body
 
             {
-                "message":"",
+                "message":"图像集合获取成功",
                 "data":
                     [
                         {
-                            "id": "1",    
-                            "groundtruth_id": "123",
-                            "state": "unassigned",
-                            "info_id": "123"
+                            "image_id": 432,    
+                            "label_id": 67,
+                            "state": 300,
+                            "filename": "image1.png",
+                            "source": "someone"
                         }, {
-                            "id": "2",    
-                            "groundtruth_id": "234",
-                            "state": "unassigned",
-                            "info_id": "234"
+                            "image_id": 332,    
+                            "label_id": 67,
+                            "state": 300,
+                            "filename": "image1.png",
+                            "source": "someone"
                         }, {
-                            "id": "3",    
-                            "groundtruth_id": "345",
-                            "state": "unassigned",
-                            "info_id": "345"
+                            "image_id": 542,    
+                            "label_id": 67,
+                            "state": 300,
+                            "filename": "image1.png",
+                            "source": "someone"
                         }
                     ]
             }
@@ -973,7 +986,8 @@ To create a new image simply with a JSON. This action requires an `authority` of
     + Body
 
             {
-                "file_path": "/images/abc.png"
+                "filename": "image1.png",
+                "source": "someone"
             }
 
 + Response 201
@@ -985,10 +999,12 @@ To create a new image simply with a JSON. This action requires an `authority` of
     + Body
 
             {
-                "message": "",
-                "id": "1",
-                "state": "unassigned",
-                "info_id": "123"
+                "message": "图像创建成功",
+                "image_id": 432,    
+                "label_id": 67,
+                "state": 300,
+                "filename": "image1.png",
+                "source": "someone"
             }
 
 + Response 401
@@ -1018,10 +1034,10 @@ To create a new image simply with a JSON. This action requires an `authority` of
 # Group Label
 Label-related resources of *The Yelda API*.
 
-## a Single Label [/label/{id}]
+## a Single Label [/label/{label_id}]
 A single label object. The label resource has the following attributes:
 
-+ id
++ label_id
 + quality
 + dr
 + stage
@@ -1033,6 +1049,7 @@ A single label object. The label resource has the following attributes:
 + myopia
 + od
 + glaucoma
++ others
 + comment
 
 The *id* is assigned by the server at the moment of creation.
@@ -1059,20 +1076,20 @@ The *id* is assigned by the server at the moment of creation.
     + Body
 
             {
-                "message": "",
-                "id": "1",    
-                "quality": "",
-                "dr": "",
-                "stage": "",
-                "dme": "",
-                "hr": "",
-                "agedme": "",
-                "rvo": "",
-                "crao": "",
-                "myopia": "",
-                "od": "",
-                "glaucoma": "",
-                "comment": ""
+                "message": "标注获取成功",
+                "label_id": 634,    
+                "quality": "Q",
+                "dr": "D",
+                "stage": "S",
+                "dme": "D",
+                "hr": "H",
+                "agedme": "A",
+                "rvo": "R",
+                "crao": "C",
+                "myopia": "M",
+                "od": "O",
+                "glaucoma": "G",
+                "comment": "COMMENT"
             }
 
 + Response 401
@@ -1111,18 +1128,18 @@ To update a label, send a JSON with updated value for All of the label resource 
     + Body
 
             {
-                "quality": "",
-                "dr": "",
-                "stage": "",
-                "dme": "",
-                "hr": "",
-                "agedme": "",
-                "rvo": "",
-                "crao": "",
-                "myopia": "",
-                "od": "",
-                "glaucoma": "",
-                "comment": ""
+                "quality": "Q",
+                "dr": "D",
+                "stage": "S",
+                "dme": "D",
+                "hr": "H",
+                "agedme": "A",
+                "rvo": "R",
+                "crao": "C",
+                "myopia": "M",
+                "od": "O",
+                "glaucoma": "G",
+                "comment": "COMMENT"
             }
 
 + Response 200
@@ -1134,20 +1151,19 @@ To update a label, send a JSON with updated value for All of the label resource 
     + Body
 
             {
-                "message": "",
-                "id": "1",    
-                "quality": "",
-                "dr": "",
-                "stage": "",
-                "dme": "",
-                "hr": "",
-                "agedme": "",
-                "rvo": "",
-                "crao": "",
-                "myopia": "",
-                "od": "",
-                "glaucoma": "",
-                "comment": ""
+                "message": "标注修改成功",
+                "quality": "Q",
+                "dr": "D",
+                "stage": "S",
+                "dme": "D",
+                "hr": "H",
+                "agedme": "A",
+                "rvo": "R",
+                "crao": "C",
+                "myopia": "M",
+                "od": "O",
+                "glaucoma": "G",
+                "comment": "COMMENT"
             }
 
 + Response 401
@@ -1228,6 +1244,7 @@ To update a label, send a JSON with updated value for All of the label resource 
 Collection of all labels.
 
 ### Create a Label [POST]
+
 To create a new image simply with a JSON. This action requires an `authority` of `admin` .
 
 + Request (application/json)
@@ -1239,19 +1256,19 @@ To create a new image simply with a JSON. This action requires an `authority` of
     + Body
 
             {
-                "id": "1",    
-                "quality": "",
-                "dr": "",
-                "stage": "",
-                "dme": "",
-                "hr": "",
-                "agedme": "",
-                "rvo": "",
-                "crao": "",
-                "myopia": "",
-                "od": "",
-                "glaucoma": "",
-                "comment": ""
+                "label_id": 634,    
+                "quality": "Q",
+                "dr": "D",
+                "stage": "S",
+                "dme": "D",
+                "hr": "H",
+                "agedme": "A",
+                "rvo": "R",
+                "crao": "C",
+                "myopia": "M",
+                "od": "O",
+                "glaucoma": "G",
+                "comment": "COMMENT"
             }
 
 + Response 201
@@ -1263,20 +1280,20 @@ To create a new image simply with a JSON. This action requires an `authority` of
     + Body
 
             {
-                "message": "",
-                "id": "1",    
-                "quality": "",
-                "dr": "",
-                "stage": "",
-                "dme": "",
-                "hr": "",
-                "agedme": "",
-                "rvo": "",
-                "crao": "",
-                "myopia": "",
-                "od": "",
-                "glaucoma": "",
-                "comment": ""
+                "message": "标注创建成功",
+                "label_id": 634,    
+                "quality": "Q",
+                "dr": "D",
+                "stage": "S",
+                "dme": "D",
+                "hr": "H",
+                "agedme": "A",
+                "rvo": "R",
+                "crao": "C",
+                "myopia": "M",
+                "od": "O",
+                "glaucoma": "G",
+                "comment": "COMMENT"
             }
 
 + Response 401
@@ -1289,6 +1306,170 @@ To create a new image simply with a JSON. This action requires an `authority` of
 
             {
                 "message": "用户未登录"
+            }
+
+
+# Group Upload
+Upload-related resources of *The Yelda API*.
+
+## A single uploaded photo object [/uploads/photos/{filename}]
+A single photo object. A photo is a binary files
+
+The *filename* is a full name with filename extension like "yelda.jpg".
+
+For example, maybe you can use the label like
+`<img src="http://ourhost:8080/api/uploads/photos/admin.jpg" />`
+
+to get the photo file
+
+### Retrieve a Single uploaded photo [GET]
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+            
+    + Body
+
+            {
+            }
+
++ Response 200
+
+    + Body
+
+            raw data
+
++ Response 401
+
+    + Headers
+
+            Last-Modified: 2018-04-17
+
+    + Body
+
+            {
+                "message": "用户未登录"
+            }
+
+## Uploaded photo Collection [/uploads/photos/]
+
+### Upload a photo [POST]
+To upload a new photo. This action is `login-required`.
+
++ Request (application/json)
+
+    + Headers
+    
+            
+    + Body
+
+            {
+                raw_data
+            }
+
++ Response 201
+
+    + Headers
+
+
+    + Body
+
+            {
+                "message": "头像上传成功"
+            }
+            
++ Response 400
+
+    + Headers
+
+
+    + Body
+
+            {
+                "message": "头像上传失败"
+            }
+
+
+## A single uploaded photo object [/uploads/images/{filename}]
+A single medical image object.
+
+The *filename* is a full name with filename extension like "yelda.jpg".
+
+For example, maybe you can use the label like
+`<img src="http://ourhost:8080/api/uploads/medical-images/xxx.jpg" />`
+
+to get the photo file
+
+### Retrieve a Single uploaded medical image [GET]
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+            
+    + Body
+
+            {
+            }
+
++ Response 200
+
+    + Body
+
+            raw data
+
++ Response 401
+
+    + Headers
+
+            Last-Modified: 2018-04-17
+
+    + Body
+
+            {
+                "message": "用户未登录"
+            }
+
+
+## Uploaded medical-images Collection [/uploads/photos/]
+
+### Upload a medical image [POST]
+To upload a new medicalimage. This action is `login-required`.
+
++ Request (application/json)
+
+    + Headers
+    
+            
+    + Body
+
+            {
+                raw_data
+            }
+
++ Response 201
+
+    + Headers
+
+
+    + Body
+
+            {
+                "message": "医学影像上传成功"
+            }
+            
++ Response 400
+
+    + Headers
+
+
+    + Body
+
+            {
+                "message": "医学影像上传失败"
             }
 
 ## Codes
