@@ -18,7 +18,7 @@ Where applicable this API uses the [HAL+JSON](https://github.com/mikekelly/hal_s
 Requests with a message-body are using plain JSON to set or update resource states.
 
 ## Error States
-The common [HTTP Response Status Codes](https://github.com/TheYelda/Dashboard/blob/master/http_status_codes_reference.md) are used.
+The common [HTTP Response Status Codes](https://github.com/TheYelda/Dashboard/blob/master/docs/development_standard/http_status_codes_reference.md) are used.
 
 # TheYelda API Root [/]
 TheYelda API entry point.
@@ -134,7 +134,7 @@ Authorization Resource represents an authorization granted to the user. You can 
 # Group Self
 Myself-related resources of *The Yelda API*.
 
-## a Single Self [/Self]
+## a Single Self [/self/]
 A single account object. The account resource has the following attributes:
 
 + id
@@ -1306,6 +1306,170 @@ To create a new image simply with a JSON. This action requires an `authority` of
 
             {
                 "message": "用户未登录"
+            }
+
+
+# Group Upload
+Upload-related resources of *The Yelda API*.
+
+## A single uploaded photo object [/uploads/photos/{filename}]
+A single photo object. A photo is a binary files
+
+The *filename* is a full name with filename extension like "yelda.jpg".
+
+For example, maybe you can use the label like
+`<img src="http://ourhost:8080/api/uploads/photos/admin.jpg" />`
+
+to get the photo file
+
+### Retrieve a Single uploaded photo [GET]
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+            
+    + Body
+
+            {
+            }
+
++ Response 200
+
+    + Body
+
+            raw data
+
++ Response 401
+
+    + Headers
+
+            Last-Modified: 2018-04-17
+
+    + Body
+
+            {
+                "message": "用户未登录"
+            }
+
+## Uploaded photo Collection [/uploads/photos/]
+
+### Upload a photo [POST]
+To upload a new photo. This action is `login-required`.
+
++ Request (application/json)
+
+    + Headers
+    
+            
+    + Body
+
+            {
+                raw_data
+            }
+
++ Response 201
+
+    + Headers
+
+
+    + Body
+
+            {
+                "message": "头像上传成功"
+            }
+            
++ Response 400
+
+    + Headers
+
+
+    + Body
+
+            {
+                "message": "头像上传失败"
+            }
+
+
+## A single uploaded photo object [/uploads/images/{filename}]
+A single medical image object.
+
+The *filename* is a full name with filename extension like "yelda.jpg".
+
+For example, maybe you can use the label like
+`<img src="http://ourhost:8080/api/uploads/medical-images/xxx.jpg" />`
+
+to get the photo file
+
+### Retrieve a Single uploaded medical image [GET]
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+            
+    + Body
+
+            {
+            }
+
++ Response 200
+
+    + Body
+
+            raw data
+
++ Response 401
+
+    + Headers
+
+            Last-Modified: 2018-04-17
+
+    + Body
+
+            {
+                "message": "用户未登录"
+            }
+
+
+## Uploaded medical-images Collection [/uploads/photos/]
+
+### Upload a medical image [POST]
+To upload a new medicalimage. This action is `login-required`.
+
++ Request (application/json)
+
+    + Headers
+    
+            
+    + Body
+
+            {
+                raw_data
+            }
+
++ Response 201
+
+    + Headers
+
+
+    + Body
+
+            {
+                "message": "医学影像上传成功"
+            }
+            
++ Response 400
+
+    + Headers
+
+
+    + Body
+
+            {
+                "message": "医学影像上传失败"
             }
 
 ## Codes
