@@ -1151,6 +1151,18 @@ The *id* is assigned by the server at the moment of creation.
                 "message": "用户无法访问其他用户的标注信息"
             }
 
++ Response 404
+
+    + Headers
+
+            Last-Modified: 2018-04-17
+
+    + Body
+
+            {
+                "message": "标注不存在"
+            }
+
 ### Edit a Label [PUT]
 To update a label, send a JSON with updated value for All of the label resource attributes EXCEPT id.
 
@@ -1163,18 +1175,19 @@ To update a label, send a JSON with updated value for All of the label resource 
     + Body
 
             {
-                "quality": "Q",
-                "dr": "D",
-                "stage": "S",
-                "dme": "D",
-                "hr": "H",
-                "agedme": "A",
-                "rvo": "R",
-                "crao": "C",
-                "myopia": "M",
-                "od": "O",
-                "glaucoma": "G",
-                "comment": "COMMENT"
+				"quality": true,
+				"dr": false,
+				"stage": "S",
+				"dme": true,
+				"hr": "H",
+				"age_dme": "A",
+				"rvo": false,
+				"crao": true,
+				"myopia": false,
+				"od": true,
+				"glaucoma": false,
+				"others": true,
+				"comment": "COMMENT"
             }
 
 + Response 200
@@ -1187,18 +1200,19 @@ To update a label, send a JSON with updated value for All of the label resource 
 
             {
                 "message": "标注修改成功",
-                "quality": "Q",
-                "dr": "D",
-                "stage": "S",
-                "dme": "D",
-                "hr": "H",
-                "agedme": "A",
-                "rvo": "R",
-                "crao": "C",
-                "myopia": "M",
-                "od": "O",
-                "glaucoma": "G",
-                "comment": "COMMENT"
+				"quality": true,
+				"dr": false,
+				"stage": "S",
+				"dme": true,
+				"hr": "H",
+				"age_dme": "A",
+				"rvo": false,
+				"crao": true,
+				"myopia": false,
+				"od": true,
+				"glaucoma": false,
+				"others": true,
+				"comment": "COMMENT"
             }
 
 + Response 401
@@ -1237,6 +1251,18 @@ To update a label, send a JSON with updated value for All of the label resource 
                 "message": "用户无法修改该标注信息"
             }
 
++ Response 404
+
+    + Headers
+
+            Location: /images/1
+            
+    + Body
+
+            {
+                "message": "标注不存在"
+            }
+
 ### Delete an Label [DELETE]
 
 + Response 204
@@ -1248,7 +1274,7 @@ To update a label, send a JSON with updated value for All of the label resource 
     + Body
 
             {
-                "message": "已删除标注信息"
+                "message": "标注删除成功"
             }
 
 + Response 401
@@ -1275,6 +1301,18 @@ To update a label, send a JSON with updated value for All of the label resource 
                 "message": "用户无法删除其他用户的标注"
             }
 
++ Response 404
+
+    + Headers
+
+            Location: /images/1
+            
+    + Body
+
+            {
+                "message": "标注不存在"
+            }
+
 ## Labels Collection [/labels]
 Collection of all labels.
 
@@ -1291,20 +1329,20 @@ To create a new image simply with a JSON. This action requires an `authority` of
     + Body
 
             {
-                "label_id": 634,    
-                "quality": "Q",
-                "dr": "D",
-                "stage": "S",
-                "dme": "D",
-                "hr": "H",
-                "agedme": "A",
-                "rvo": "R",
-                "crao": "C",
-                "myopia": "M",
-                "od": "O",
-                "glaucoma": "G",
-                "comment": "COMMENT"
-            }
+				"quality": true,
+				"dr": false,
+				"stage": "S",
+				"dme": true,
+				"hr": "H",
+				"age_dme": "A",
+				"rvo": false,
+				"crao": true,
+				"myopia": false,
+				"od": true,
+				"glaucoma": false,
+				"others": true,
+				"comment": "COMMENT"
+		    }
 
 + Response 201
 
@@ -1316,19 +1354,20 @@ To create a new image simply with a JSON. This action requires an `authority` of
 
             {
                 "message": "标注创建成功",
-                "label_id": 634,    
-                "quality": "Q",
-                "dr": "D",
-                "stage": "S",
-                "dme": "D",
-                "hr": "H",
-                "agedme": "A",
-                "rvo": "R",
-                "crao": "C",
-                "myopia": "M",
-                "od": "O",
-                "glaucoma": "G",
-                "comment": "COMMENT"
+                "label_id": 4,
+				"quality": true,
+				"dr": false,
+				"stage": "S",
+				"dme": true,
+				"hr": "H",
+				"age_dme": "A",
+				"rvo": false,
+				"crao": true,
+				"myopia": false,
+				"od": true,
+				"glaucoma": false,
+				"others": true,
+				"comment": "COMMENT"
             }
 
 + Response 401
