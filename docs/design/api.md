@@ -811,6 +811,18 @@ The *id* is assigned by the server at the moment of creation.
                 "message": "用户未登录"
             }
 
++ Response 404
+
+    + Headers
+
+            Location: /images/1
+            
+    + Body
+
+            {
+                "message": "图片不存在"
+            }
+
 ### Edit an Image [PUT]
 To update an image, send a JSON with updated value for All of the image resource attributes EXCEPT id.
 
@@ -823,7 +835,6 @@ To update an image, send a JSON with updated value for All of the image resource
     + Body
 
             {
-                "image_id": 432,
                 "label_id": 67,
                 "state": 300,
                 "filename": "image1.png",
@@ -840,7 +851,6 @@ To update an image, send a JSON with updated value for All of the image resource
 
             {
                 "message": "图像信息修改成功",
-                "image_id": 432,
                 "label_id": 67,
                 "state": 300,
                 "filename": "image1.png",
@@ -871,9 +881,21 @@ To update an image, send a JSON with updated value for All of the image resource
                 "message": "修改图像信息需要管理员权限"
             }
 
++ Response 400
+
+    + Headers
+
+            Location: /images/1
+            
+    + Body
+
+            {
+                "message": "指定的标签不存在"
+            }
+
 ### Delete an Image [DELETE]
 
-+ Response 204
++ Response 200
 
     + Headers
 
@@ -884,6 +906,7 @@ To update an image, send a JSON with updated value for All of the image resource
             {
                 "message": "已删除图像"
             }
+
 + Response 401
 
     + Headers
@@ -906,6 +929,18 @@ To update an image, send a JSON with updated value for All of the image resource
 
             {
                 "message": "删除图像需要管理员权限"
+            }
+
++ Response 404
+
+    + Headers
+
+            Location: /images/1
+            
+    + Body
+
+            {
+                "message": "图片不存在"
             }
 
 ## Images Collection [/images/{?state}]
