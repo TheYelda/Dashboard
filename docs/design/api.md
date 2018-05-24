@@ -584,6 +584,17 @@ To update a job, send a JSON with updated value for All of the job resource attr
                 "message": "用户无法修改已完成的任务"
             }
 
++ Response 400
+
+    + Headers
+
+            Location: /jobs/1
+            
+    + Body
+
+            {
+                "message": "指定的用户或图像不存在"
+            }
 
 ### Delete a Job [DELETE]
 
@@ -620,6 +631,18 @@ To update a job, send a JSON with updated value for All of the job resource attr
 
             {
                 "message": "删除任务需要管理员权限"
+            }
+
++ Response 404
+
+    + Headers
+
+            Location: /jobs/1
+            
+    + Body
+
+            {
+                "message": "任务不存在"
             }
 
 ## Jobs Collection [/jobs/{?image_id}{?account_id}{?job_state}]
@@ -701,7 +724,7 @@ Collection of all jobs.
     + Body
 
             {
-                "message":"用户无法访问其他用户的任务列表"
+                "message":"用户没有权限访问其他用户的任务列表"
             }
 
 ### Create a Job [POST]
@@ -760,6 +783,18 @@ To create a new job simply with a JSON. This action requires an `authority` of `
 
             {
                 "message": "创建任务需要管理员权限"
+            }
+
++ Response 400
+
+    + Headers
+
+            Location: /jobs/1
+            
+    + Body
+
+            {
+                "message": "指定的用户或图像不存在"
             }
 
 # Group Image
