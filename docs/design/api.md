@@ -117,12 +117,12 @@ Authorization Resource represents an authorization granted to the user. You can 
     + Body
 
             {
-                "message": "登出成功"
             }
 
 + Response 204
 
             {
+                "message": "登出成功"
             }
 
 + Response 401
@@ -583,7 +583,7 @@ To update a job, send a JSON with updated value for All of the job resource attr
             {
                 "message": "用户无法修改已完成的任务"
             }
-
+            
 + Response 400
 
     + Headers
@@ -595,6 +595,7 @@ To update a job, send a JSON with updated value for All of the job resource attr
             {
                 "message": "指定的用户或图像不存在"
             }
+
 
 ### Delete a Job [DELETE]
 
@@ -784,7 +785,7 @@ To create a new job simply with a JSON. This action requires an `authority` of `
             {
                 "message": "创建任务需要管理员权限"
             }
-
+            
 + Response 400
 
     + Headers
