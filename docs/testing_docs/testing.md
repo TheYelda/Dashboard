@@ -66,7 +66,7 @@
 
 
 ### edit an image
-![edit_image](./images/edit_image.png)
+![edit_image](./images/edit_image1.png)
 
 ### delete an image
 
