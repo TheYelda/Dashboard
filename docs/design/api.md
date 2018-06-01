@@ -880,9 +880,7 @@ To update an image, send a JSON with updated value for All of the image resource
     + Body
 
             {
-                "label_id": 67,
-                "image_state": 300,
-                "filename": "image1.png",
+                "label_id": 67
                 "source": "somexxx"
             }
 
@@ -1630,6 +1628,8 @@ To upload a new medicalimage. This action is `login-required`.
 | 301  |  Running   |             |
 | 302  | Different  |             |
 | 303  |    Done    |             |
+
+
 
 
 
