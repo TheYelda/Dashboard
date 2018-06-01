@@ -646,13 +646,8 @@ To update a job, send a JSON with updated value for All of the job resource attr
                 "message": "任务不存在"
             }
 
-## Jobs Collection [/jobs/{?image_id}{?account_id}{?job_state}]
+## Jobs Collection [/jobs]
 Collection of all jobs.
-
-+ Parameters
-    + image_id: 1 (optional, int) - ID of the image which the job contains in form of an integer
-    + account_id: 1 (optional, int) - ID of the doctor who the job is assigned to in form of an integer
-    + job_state: 200 (optional, int) - code of a job state in form of an integer
 
 ### List All Jobs [GET]
 
