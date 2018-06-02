@@ -523,8 +523,6 @@ To update a job, send a JSON with updated value for All of the job resource attr
     + Body
 
             {
-                "image_id": 427,
-                "account_id": 42,
                 "label_id": 88,
                 "job_state": 204,
                 "finished_date": "2018-04-17"
@@ -646,7 +644,7 @@ To update a job, send a JSON with updated value for All of the job resource attr
                 "message": "任务不存在"
             }
 
-## Jobs Collection [/jobs]
+## Jobs Collection [/jobs/]
 Collection of all jobs.
 
 ### List All Jobs [GET]
@@ -875,7 +873,8 @@ To update an image, send a JSON with updated value for All of the image resource
     + Body
 
             {
-                "label_id": 67
+                "label_id": 67,
+                 "image_state": 300,
                 "source": "somexxx"
             }
 
