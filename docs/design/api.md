@@ -524,8 +524,7 @@ To update a job, send a JSON with updated value for All of the job resource attr
 
             {
                 "label_id": 88,
-                "job_state": 204,
-                "finished_date": "2018-04-17"
+                "job_state": 204
             }
 
 + Response 200
@@ -1370,7 +1369,7 @@ To create a new image simply with a JSON. This action requires an `authority` of
             {
                 "quality": true,
                 "dr": false,
-                "stage": "S",
+                "stage": 0,
                 "dme": true,
                 "hr": "H",
                 "age_dme": "A",
@@ -1623,7 +1622,29 @@ To upload a new medicalimage. This action is `login-required`.
 | 302  | Different  |             |
 | 303  |    Done    |             |
 
+### 黄斑水肿 4XX
 
+| code |    name    | description |
+| :--: | :--------: | :---------: |
+| 400  | 没有黄斑水肿 |             |
+| 401  |  糖尿病黄斑水肿   |             |
+| 402  | 非糖尿病黄斑水肿  |             |
 
+### 高血压视网膜病变 5XX
 
+| code |    name    | description |
+| :--: | :--------: | :---------: |
+| 500  | 不患有高血压视网膜病变 |             |
+| 501  |  轻度高血压视网膜病变   |             |
+| 502  | 中度高血压视网膜病变  |             |
+| 503  | 重度高血压视网膜病变  |             |
+
+### 年龄相关性黄斑变性 6XX
+
+| code |    name    | description |
+| :--: | :--------: | :---------: |
+| 600  | 不患有年龄相关性黄斑变性 |             |
+| 601  |  早期年龄相关性黄斑变性   |             |
+| 602  | 中期年龄相关性黄斑变性  |             |
+| 603  | 晚期年龄相关性黄斑变性  |             |
 
