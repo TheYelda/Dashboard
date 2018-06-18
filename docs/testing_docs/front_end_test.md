@@ -1,5 +1,11 @@
 # 前端本地测试方法
 
+---
+
+此文档暂时作废。
+
+---
+
 ### 前期准备
 
 下载后端代码：
@@ -56,6 +62,9 @@ DB_USERNAME = MySQL用户名    // 例如 DB_USERNAME = 'root'
 DB_PASSWORD = MySQL密码      // 
 DB_NAME = 数据库名称          // 
 SECRET_KEY = 用户会话管理秘钥  // 例如 SECRET_KEY = 'hello world'
+PHOTOS_FOLDER = 头像路径      // 例如 PHOTOS_FOLDER = 'yelda/photos'
+MEDICAL_IMAGES_FOLDER = 医学图像路径  // 例如 MEDICAL_IMAGES_FOLDER = 'yelda/medical-images'
+MAX_CONTENT_LENGTH = 16 * 1024 * 1024  // 上传文件大小限制
 ```
 
 修改代码解决**跨域问题**：
@@ -94,12 +103,12 @@ $ source venv/bin/activate
 
 ### 本地测试
 
-本地测试时URL使用`http://localhost:5000/`
+本地测试时URL使用`http://localhost:10086/`
 
 例如：
 
 ```shell
-this.$http.post('http://localhost:5000/authorization/', this.loginForm).then(res => {
+this.$http.post('http://localhost:10086/authorization/', this.loginForm).then(res => {
 ```
 
 为了便于测试，需要先在数据库中预设账号，但是由于数据库中`password`属性已被哈希，直接插入记录不现实，可以先通过注册功能插入用户，再使用`MySQL`修改权限。
