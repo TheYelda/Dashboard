@@ -800,6 +800,7 @@ A single image object. The image resource has the following attributes:
 + label_id
 + image_state
 + filename
++ url
 + source
 
 The *id* is assigned by the server at the moment of creation.
@@ -833,6 +834,7 @@ The *id* is assigned by the server at the moment of creation.
                 "label_id": 67,
                 "image_state": 300,
                 "filename": "image1.png",
+                "url": "hashcode",
                 "source": "someone"
             }
 
@@ -890,6 +892,7 @@ To update an image, send a JSON with updated value for All of the image resource
                 "label_id": 67,
                 "image_state": 300,
                 "filename": "image1.png",
+                "url": "hashcode",
                 "source": "somexxx"
             }
 
@@ -1015,18 +1018,21 @@ Collection of all images.
                             "label_id": 67,
                             "image_state": 300,
                             "filename": "image1.png",
+                            "url": "hashcode",
                             "source": "someone"
                         }, {
                             "image_id": 332,    
                             "label_id": 67,
                             "image_state": 300,
                             "filename": "image1.png",
+                            "url": "hashcode",
                             "source": "someone"
                         }, {
                             "image_id": 542,    
                             "label_id": 67,
                             "image_state": 300,
                             "filename": "image1.png",
+                            "url": "hashcode",
                             "source": "someone"
                         }
                     ]
@@ -1057,6 +1063,7 @@ To create a new image simply with a JSON. This action requires an `authority` of
 
             {
                 "filename": "image1.png",
+                "url": "hashcode",
                 "source": "someone"
             }
 
@@ -1074,6 +1081,7 @@ To create a new image simply with a JSON. This action requires an `authority` of
                 "label_id": 67,
                 "image_state": 300,
                 "filename": "image1.png",
+                "url": "hashcode",
                 "source": "someone"
             }
 
@@ -1150,7 +1158,7 @@ The *id* is assigned by the server at the moment of creation.
 
             {
                 "message": "标注获取成功",
-                "quality": true,
+                "quality": [701, 702, 703],
                 "dr": false,
                 "stage": 0,
                 "dme": 400,
@@ -1213,7 +1221,7 @@ To update a label, send a JSON with updated value for All of the label resource 
     + Body
 
             {
-                "quality": true,
+                "quality": [701, 702, 703],
                 "dr": false,
                 "stage": 0,
                 "dme": 400,
@@ -1238,7 +1246,7 @@ To update a label, send a JSON with updated value for All of the label resource 
 
             {
                 "message": "标注修改成功",
-                "quality": true,
+                "quality": [701, 702, 703],
                 "dr": false,
                 "stage": 0,
                 "dme": 400,
@@ -1367,7 +1375,7 @@ To create a new image simply with a JSON. This action requires an `authority` of
     + Body
 
             {
-                "quality": true,
+                "quality": [701, 702, 703],
                 "dr": false,
                 "stage": 0,
                 "dme": 400,
@@ -1393,7 +1401,7 @@ To create a new image simply with a JSON. This action requires an `authority` of
             {
                 "message": "标注创建成功",
                 "label_id": 634,    
-                "quality": true,
+                "quality": [701, 702, 703],
                 "dr": false,
                 "stage": 0,
                 "dme": 400,
