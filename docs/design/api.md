@@ -459,48 +459,48 @@ The *id* is assigned by the server at the moment of creation.
             {
                 "message": "获取成功",
                 "data": [
-                		"progress": {
-                			"total jobs": 100,
-                			"unlabeled jobs": 20,
-                			"labeling jobs": 30,
-                			"finished jobs": 50
-                		},
-                		"quality: {
-                			"accuracy": 0.80
-                		},
-                		"dr": {
-                			"accuracy": 0.80
-                		},
-                		"stage": {
-                			"accuracy": 0.80
-                		},
-                		"dme": {
-                			"accuracy": 0.80
-                		},
-                		"hr": {
-                			"accuracy": 0.80
-                		},
-                		"age_dme: {
-                			"accuracy": 0.80
-                		},
-                		"rvo": {
-                			"accuracy": 0.80
-                		},
-                		"crao": {
-                			"accuracy": 0.80
-                		},
-                		"myopia": {
-                			"accuracy": 0.80
-                		},
-                		"od": {
-                			"accuracy": 0.80
-                		},
-                		"glaucoma": {
-                			"accuracy": 0.80
-                		},
-                		"others": {
-                			"accuracy": 0.80
-                		}
+                        "progress": {
+                            "total jobs": 100,
+                            "unlabeled jobs": 20,
+                            "labeling jobs": 30,
+                            "finished jobs": 50
+                        },
+                        "quality: {
+                            "accuracy": 0.80
+                        },
+                        "dr": {
+                            "accuracy": 0.80
+                        },
+                        "stage": {
+                            "accuracy": 0.80
+                        },
+                        "dme": {
+                            "accuracy": 0.80
+                        },
+                        "hr": {
+                            "accuracy": 0.80
+                        },
+                        "age_dme: {
+                            "accuracy": 0.80
+                        },
+                        "rvo": {
+                            "accuracy": 0.80
+                        },
+                        "crao": {
+                            "accuracy": 0.80
+                        },
+                        "myopia": {
+                            "accuracy": 0.80
+                        },
+                        "od": {
+                            "accuracy": 0.80
+                        },
+                        "glaucoma": {
+                            "accuracy": 0.80
+                        },
+                        "others": {
+                            "accuracy": 0.80
+                        }
                 ]
             }
 
