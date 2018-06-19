@@ -427,6 +427,96 @@ To create a new account simply provide a JSON. This action requires an `authorit
                 "message": "用户名已存在"
             }
 
+## Performance of a single Account [/accounts/performance/{account_id}]
+Performance of a single Account
+
+The *id* is assigned by the server at the moment of creation.
+
++ Parameters
+    + account_id: 123 (required, int) - ID of the Account in form of an integer
+
+### Retrieve the performance of a Single Account [GET]
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+            
+    + Body
+
+            {
+            }
+
++ Response 200
+
+    + Headers
+
+            Last-Modified: 2018-04-17
+
+    + Body
+
+            {
+                "message": "获取成功",
+                "data": [
+                		"progress": {
+                			"total jobs": 100,
+                			"unlabeled jobs": 20,
+                			"labeling jobs": 30,
+                			"finished jobs": 50
+                		},
+                		"quality: {
+                			"accuracy": 0.80
+                		},
+                		"dr": {
+                			"accuracy": 0.80
+                		},
+                		"stage": {
+                			"accuracy": 0.80
+                		},
+                		"dme": {
+                			"accuracy": 0.80
+                		},
+                		"hr": {
+                			"accuracy": 0.80
+                		},
+                		"age_dme: {
+                			"accuracy": 0.80
+                		},
+                		"rvo": {
+                			"accuracy": 0.80
+                		},
+                		"crao": {
+                			"accuracy": 0.80
+                		},
+                		"myopia": {
+                			"accuracy": 0.80
+                		},
+                		"od": {
+                			"accuracy": 0.80
+                		},
+                		"glaucoma": {
+                			"accuracy": 0.80
+                		},
+                		"others": {
+                			"accuracy": 0.80
+                		}
+                ]
+            }
+
++ Response 401
+
+            {
+                "message": "无法获得该用户工作统计量"
+            }
+            
++ Response 404
+
+            {
+                "message": "用户不存在"
+            }
+
+
 # Group Job
 Job-related resources of *The Yelda API*.
 
@@ -1514,92 +1604,6 @@ To upload a new photo. This action is `login-required`.
                 "message": "头像上传失败"
             }
 
-
-# Group Uploaded medical image
-Upload medical image related resources of *The Yelda API*.
-
-## A single uploaded medical image object [/uploads/medical-images/{filename}]
-A single medical image object.
-
-The *filename* is a full name with filename extension like "yelda.jpg".
-
-For example, maybe you can use the label like
-`<img src="http://ourhost:8080/api/uploads/medical-images/xxx.jpg" />`
-
-to get the medical image file
-
-+ Parameters
-    + filename: abc.png (required, string) - Name of the file in form of a string
-
-### Retrieve a Single uploaded medical image [GET]
-
-+ Request (application/json)
-
-    + Headers
-
-            Accept: application/json
-            
-    + Body
-
-            {
-            }
-
-+ Response 200
-
-    + Body
-
-            raw data
-
-+ Response 401
-
-    + Headers
-
-            Last-Modified: 2018-04-17
-
-    + Body
-
-            {
-                "message": "用户未登录"
-            }
-
-
-## Uploaded medical images Collection [/uploads/medical-images/]
-
-### Upload a medical image [POST]
-To upload a new medicalimage. This action is `login-required`.
-
-+ Request (application/json)
-
-    + Headers
-    
-            
-    + Body
-
-            {
-                raw_data
-            }
-
-+ Response 201
-
-    + Headers
-
-
-    + Body
-
-            {
-                "message": "医学影像上传成功"
-            }
-            
-+ Response 400
-
-    + Headers
-
-
-    + Body
-
-            {
-                "message": "医学影像上传失败"
-            }
 
 ## Codes
 
