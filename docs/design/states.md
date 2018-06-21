@@ -25,9 +25,10 @@
 | code |    name    | description |
 | :--: | :--------: | :---------: |
 | 300  | Unassigned |             |
-| 301  |  Running   |             |
-| 302  | Different  |             |
-| 303  |    Done    |             |
+| 301  |  Running   |管理员已经手动为该图像分配了标记任务|
+| 302  | Different  |标记存在分歧，系统自动分配了另一个医生来标记该图像|
+| 303  | DifferentII  |标记仍然存在分歧，系统自动分配了一个专家来标记该图像|
+| 304  |    Done    |             |
 
 ## 黄斑水肿 4XX
 
