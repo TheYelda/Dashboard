@@ -1604,59 +1604,88 @@ To upload a new photo. This action is `login-required`.
                 "message": "头像上传失败"
             }
 
+# Group Uploaded medical image
+Upload medical image related resources of *The Yelda API*.
 
-## Codes
+## A single uploaded medical image object [/uploads/medical-images/{url}]
+A single medical image object.
 
-### Authority 1XX
++ Parameters
+    + url: 20180620154353.262116-4139340812150045587.png (required, string) - Hash value of the filename and timestamp in form of a string
 
-| code |  name  | description |
-| :--: | :----: | :---------: |
-| 100  |  None  |             |
-| 101  | Admin  |             |
-| 102  | Doctor |             |
-| 103  | Guest  |             |
+### Retrieve a Single uploaded medical image [GET]
 
-### Job State 2XX
++ Request (application/json)
 
-| code |   name    | description |
-| :--: | :-------: | :---------: |
-| 200  | Unlabeled |             |
-| 201  | Labeling  |             |
-| 202  | Finished  |             |
+    + Headers
+
+            Accept: application/json
+            
+    + Body
+
+            {
+            }
+
++ Response 200
+
+    + Body
+
+            raw data
+
++ Response 401
+
+    + Headers
+
+            Last-Modified: 2018-04-17
+
+    + Body
+
+            {
+                "message": "用户未登录"
+            }
 
 
-### Image State 3XX
+## Uploaded medical images Collection [/uploads/medical-images/]
 
-| code |    name    | description |
-| :--: | :--------: | :---------: |
-| 300  | Unassigned |             |
-| 301  |  Running   |             |
-| 302  | Different  |             |
-| 303  |    Done    |             |
+### Upload a medical image [POST]
+To upload a new medicalimage. This action is `login-required`.
 
-### 黄斑水肿 4XX
++ Request (application/json)
 
-| code |    name    | description |
-| :--: | :--------: | :---------: |
-| 400  | 没有黄斑水肿 |             |
-| 401  |  糖尿病黄斑水肿   |             |
-| 402  | 非糖尿病黄斑水肿  |             |
+    + Headers
+    
+            
+    + Body
 
-### 高血压视网膜病变 5XX
+            {
+                raw_data
+            }
 
-| code |    name    | description |
-| :--: | :--------: | :---------: |
-| 500  | 不患有高血压视网膜病变 |             |
-| 501  |  轻度高血压视网膜病变   |             |
-| 502  | 中度高血压视网膜病变  |             |
-| 503  | 重度高血压视网膜病变  |             |
++ Response 201
 
-### 年龄相关性黄斑变性 6XX
+    + Headers
 
-| code |    name    | description |
-| :--: | :--------: | :---------: |
-| 600  | 不患有年龄相关性黄斑变性 |             |
-| 601  |  早期年龄相关性黄斑变性   |             |
-| 602  | 中期年龄相关性黄斑变性  |             |
-| 603  | 晚期年龄相关性黄斑变性  |             |
+
+    + Body
+
+            {
+                "message": "医学影像上传成功"
+                "image_id": 432,    
+                "label_id": 67,
+                "image_state": 300,
+                "filename": "image1.png",
+                "url": "hashcode",
+                "source": "someone"
+            }
+            
++ Response 400
+
+    + Headers
+
+
+    + Body
+
+            {
+                "message": "医学影像上传失败"
+            }
 
