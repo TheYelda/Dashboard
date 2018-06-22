@@ -458,12 +458,12 @@ The *id* is assigned by the server at the moment of creation.
 
             {
                 "message": "获取成功",
-                "data": [
+                "data": {
                         "progress": {
-                            "total jobs": 100,
-                            "unlabeled jobs": 20,
-                            "labeling jobs": 30,
-                            "finished jobs": 50
+                            "total_jobs": 100,
+                            "unlabeled_jobs": 20,
+                            "labeling_jobs": 30,
+                            "finished_jobs": 50
                         },
                         "quality: {
                             "accuracy": 0.80
@@ -501,7 +501,7 @@ The *id* is assigned by the server at the moment of creation.
                         "others": {
                             "accuracy": 0.80
                         }
-                ]
+                }
             }
 
 + Response 401
