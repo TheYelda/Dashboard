@@ -37,11 +37,9 @@ date: 2018-05-05
 
 ### 7.4 Software Architecture Document
 
-#### 7.4.1[Logical View]()
+#### 7.4.1[Logical View](https://github.com/TheYelda/Dashboard/blob/master/docs/software_architecture/logical_view.png)
 
-#### 7.4.2 [Physics View]()
-
-
+#### 7.4.2 [Physics View](https://github.com/TheYelda/Dashboard/blob/master/docs/software_architecture/physical_view.png)
 
 ### 7.5 [Usecase design](https://github.com/TheYelda/Dashboard/blob/master/docs/requirement_specification/use_case.md)
 
@@ -49,7 +47,7 @@ date: 2018-05-05
 
 ### 8.1 Coding Standard
 
-#### 8.1.1 [Web Frontend Coding Standard](#)
+#### 8.1.1 [Web Frontend Coding Standard](https://github.com/TheYelda/AppClient/tree/dev)
 
 #### 8.1.2 [Python Coding Standard](https://github.com/TheYelda/Dashboard/blob/master/docs/development_standard/python_code_style_guide.md)
 
