@@ -3,6 +3,8 @@ layout: default
 date: 2018-05-05
 ---
 
+## 0. [System Entry](http://202.116.86.61:8080/)
+
 ## 1. [About](https://github.com/TheYelda/Dashboard/blob/master/docs/management_docs/about.md)
 
 ## 2. [Team Profile](https://github.com/TheYelda/Dashboard/blob/master/docs/management_docs/team_profile.md)
@@ -61,6 +63,10 @@ date: 2018-05-05
 
 #### 8.2.2 [HTTP Status Codes Guidelines](https://github.com/TheYelda/Dashboard/blob/master/docs/development_standard/http_status_codes_reference.md)
 
+### 8.3 逻辑架构到应用程序映射指南
+
+### 8.4 物理架构云上部署 dock-compose.yml 文件编写与使用
+
 ## Appendix
 
 ### A.1 [Meeting Record](https://github.com/TheYelda/Dashboard/blob/master/docs/management_docs/about.md)
@@ -69,6 +75,8 @@ date: 2018-05-05
 
 ### A.3 [Testing Docs](https://github.com/TheYelda/Dashboard/blob/master/docs/testing_docs/testing.md)
 
-### A.4 [Final Report]()
+### A.4 [Final Report](https://github.com/TheYelda/Dashboard/tree/master/docs/final_reports)
+
+### A.5 [Manual](https://github.com/TheYelda/Dashboard/blob/master/docs/%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8CV2.0.pdf)
 
 
