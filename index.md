@@ -23,7 +23,9 @@ date: 2018-05-05
 
 ### 6.4 [State Model](https://github.com/TheYelda/Dashboard/blob/master/docs/requirement_specification/state_model.md)
 
-### 6.5 [System Sequence Model](#)
+### 6.5 [System Sequence Model](https://github.com/TheYelda/Dashboard/blob/master/docs/requirement_specification/sequence_diagram.md)
+
+### 6.6 [Supplementary Requirements](https://github.com/TheYelda/Dashboard/blob/master/docs/requirement_specification/supplementary_requirements.md)
 
 ## 7. Design
 
@@ -32,6 +34,16 @@ date: 2018-05-05
 ### 7.2 [Database Design](https://github.com/TheYelda/Dashboard/blob/master/docs/design/database_architecture.md)
 
 ### 7.3 [API Design](https://github.com/TheYelda/Dashboard/blob/master/docs/design/api.md)
+
+### 7.4 Software Architecture Document
+
+#### 7.4.1[Logical View]()
+
+#### 7.4.2 [Physics View]()
+
+
+
+### 7.5 [Usecase design](https://github.com/TheYelda/Dashboard/blob/master/docs/requirement_specification/use_case.md)
 
 ## 8. Development Standard
 
@@ -43,6 +55,8 @@ date: 2018-05-05
 
 #### 8.1.3 [Git Collaboration Guidelines](https://github.com/TheYelda/Dashboard/blob/master/docs/development_standard/git_collaboration_guide.md)
 
+#### 8.1.4 [Code Status Collections](https://github.com/TheYelda/Dashboard/blob/master/docs/design/states.md)
+
 ### 8.2 REST API Design Standard
 
 #### 8.2.1 [REST API Design](https://github.com/TheYelda/Dashboard/blob/master/docs/development_standard/restapi_design_standard.md)
@@ -51,12 +65,12 @@ date: 2018-05-05
 
 ## Appendix
 
-### A.1 [Meeting Record](https://github.com/TheYelda/Dashboard/tree/master/docs/meetings)
+### A.1 [Meeting Record](https://github.com/TheYelda/Dashboard/blob/master/docs/management_docs/about.md)
 
 ### A.2 [Technical Reports](https://github.com/TheYelda/Dashboard/tree/master/docs/report)
 
-### A.3 [Modelling Practice](#)
+### A.3 [Testing Docs](https://github.com/TheYelda/Dashboard/blob/master/docs/testing_docs/testing.md)
 
-### A.4 [Testing Docs](https://github.com/TheYelda/Dashboard/blob/master/docs/testing_docs/testing.md)
+### A.4 [Final Report]()
 
 
