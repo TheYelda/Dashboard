@@ -67,7 +67,7 @@ date: 2018-05-05
 
 #### 8.2.2 [HTTP Status Codes Guidelines](https://github.com/TheYelda/Dashboard/blob/master/docs/development_standard/http_status_codes_reference.md)
 
-### 8.3 逻辑架构到应用程序映射指南
+### 8.3 [逻辑架构到应用程序映射指南](https://github.com/TheYelda/Dashboard/blob/master/docs/requirement_specification/detailed_design_ecb.md)
 
 ### 8.4 [物理架构云上部署 dock-compose.yml 文件编写与使用](https://github.com/TheYelda/Deployment/blob/master/README.md)
 
