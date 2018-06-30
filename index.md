@@ -69,7 +69,7 @@ date: 2018-05-05
 
 ### 8.3 逻辑架构到应用程序映射指南
 
-### 8.4 物理架构云上部署 dock-compose.yml 文件编写与使用
+### 8.4 [物理架构云上部署 dock-compose.yml 文件编写与使用](https://github.com/TheYelda/Deployment/blob/master/README.md)
 
 ## Appendix
 
