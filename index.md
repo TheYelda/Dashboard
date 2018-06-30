@@ -45,7 +45,7 @@ date: 2018-05-05
 
 ### 7.5 [Usecase design](https://github.com/TheYelda/Dashboard/blob/master/docs/requirement_specification/use_case.md)
 
-### 7.5.1 [Labeling case design](https://github.com/TheYelda/Dashboard/blob/master/docs/requirement_specification/labeling_case_design.md)
+#### 7.5.1 [Labeling case design](https://github.com/TheYelda/Dashboard/blob/master/docs/requirement_specification/labeling_case_design.md)
 
 ## 8. Development Standard
 
