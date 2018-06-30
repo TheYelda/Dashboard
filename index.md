@@ -47,6 +47,8 @@ date: 2018-05-05
 
 #### 7.5.1 [Labeling case design](https://github.com/TheYelda/Dashboard/blob/master/docs/requirement_specification/labeling_case_design.md)
 
+#### 7.5.2 [Loging In Case Design](https://github.com/TheYelda/Dashboard/blob/master/docs/requirement_specification/login_case_design.md)
+
 ## 8. Development Standard
 
 ### 8.1 Coding Standard
@@ -80,3 +82,5 @@ date: 2018-05-05
 ### A.4 [Final Report](https://github.com/TheYelda/Dashboard/tree/master/docs/final_reports)
 
 ### A.5 [Manual](https://github.com/TheYelda/Dashboard/blob/master/docs/%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8CV2.0.pdf)
+
+
