@@ -30,11 +30,19 @@
 
 ![contribution](../images/contribution.png)
 
+### 文档
+
 ![Dashboard](../images/Dashboard.png)
+
+### 后端
 
 ![AppServer](../images/AppServer.png)
 
+### 前端
+
 ![AppClient](../images/AppClient.png)
+
+### 部署
 
 ![Deployment](../images/Deployment.png)
 
