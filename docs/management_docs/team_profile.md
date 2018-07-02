@@ -34,7 +34,7 @@
 
 ![AppServer](../images/AppServer.png)
 
-![AppClient](../image/AppClient.png)
+![AppClient](../images/AppClient.png)
 
-![Deployment](../images/Deployment)
+![Deployment](../images/Deployment.png)
 
