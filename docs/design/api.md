@@ -1689,3 +1689,48 @@ To upload a new medicalimage. This action is `login-required`.
                 "message": "医学影像上传失败"
             }
 
+# Group Download
+Download-related resources of *The Yelda API*.
+
+## Download CSV [/download/{?account_id}]
+Download personal labels by `account_id`, or all labels without `account_id` given
+
++ Parameters
+    + account_id: 123 (optional, int) - ID of the Account in form of an integer. 
+
+### Retrieve a Single CSV File [GET]
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+            
+    + Body
+
+            {
+            }
+
++ Response 200
+
+    + Headers
+
+            Last-Modified: 2018-04-17
+
+    + Body
+
+            {
+                raw data
+            }
+
++ Response 403
+
+            {
+                "message": "只有管理员有下载权限"
+            }
+            
++ Response 404
+
+            {
+                "message": "用户不存在"
+            }
