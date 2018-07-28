@@ -1311,19 +1311,19 @@ To update a label, send a JSON with updated value for All of the label resource 
     + Body
 
             {
-                "quality": [701, 702, 703],
-                "dr": false,
-                "stage": 0,
-                "dme": 400,
-                "hr": 500,
-                "age_dme": 600,
-                "rvo": false,
-                "crao": true,
-                "myopia": false,
-                "od": true,
-                "glaucoma": false,
-                "others": true,
-                "comment": "COMMENT"
+				"quality": [701, 702, 703],
+				"dr": false,
+				"stage": 702,
+				"dme": 400,
+				"hr": 500,
+				"age_dme": 600,
+				"rvo": 902,
+				"crao": 1003,
+				"myopia": false,
+				"od": true,
+				"glaucoma": false,
+				"others": true,
+				"comment": "COMMENT"
             }
 
 + Response 200
@@ -1336,19 +1336,19 @@ To update a label, send a JSON with updated value for All of the label resource 
 
             {
                 "message": "标注修改成功",
-                "quality": [701, 702, 703],
-                "dr": false,
-                "stage": 0,
-                "dme": 400,
-                "hr": 500,
-                "age_dme": 600,
-                "rvo": false,
-                "crao": true,
-                "myopia": false,
-                "od": true,
-                "glaucoma": false,
-                "others": true,
-                "comment": "COMMENT"
+				"quality": [701, 702, 703],
+				"dr": false,
+				"stage": 702,
+				"dme": 400,
+				"hr": 500,
+				"age_dme": 600,
+				"rvo": 902,
+				"crao": 1003,
+				"myopia": false,
+				"od": true,
+				"glaucoma": false,
+				"others": true,
+				"comment": "COMMENT"
             }
 
 + Response 401
@@ -1465,20 +1465,20 @@ To create a new image simply with a JSON. This action requires an `authority` of
     + Body
 
             {
-                "quality": [701, 702, 703],
-                "dr": false,
-                "stage": 0,
-                "dme": 400,
-                "hr": 500,
-                "age_dme": 600,
-                "rvo": false,
-                "crao": true,
-                "myopia": false,
-                "od": true,
-                "glaucoma": false,
-                "others": true,
-                "comment": "COMMENT"
-            }
+				"quality": [701, 702, 703],
+				"dr": false,
+				"stage": 702,
+				"dme": 400,
+				"hr": 500,
+				"age_dme": 600,
+				"rvo": 902,
+				"crao": 1003,
+				"myopia": false,
+				"od": true,
+				"glaucoma": false,
+				"others": true,
+				"comment": "COMMENT"
+			}
 
 + Response 201
 
@@ -1491,19 +1491,19 @@ To create a new image simply with a JSON. This action requires an `authority` of
             {
                 "message": "标注创建成功",
                 "label_id": 634,    
-                "quality": [701, 702, 703],
-                "dr": false,
-                "stage": 0,
-                "dme": 400,
-                "hr": 500,
-                "age_dme": 600,
-                "rvo": false,
-                "crao": true,
-                "myopia": false,
-                "od": true,
-                "glaucoma": false,
-                "others": true,
-                "comment": "COMMENT"
+				"quality": [701, 702, 703],
+				"dr": false,
+				"stage": 702,
+				"dme": 400,
+				"hr": 500,
+				"age_dme": 600,
+				"rvo": 902,
+				"crao": 1003,
+				"myopia": false,
+				"od": true,
+				"glaucoma": false,
+				"others": true,
+				"comment": "COMMENT"
             }
 
 + Response 401
