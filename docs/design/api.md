@@ -1607,11 +1607,12 @@ To upload a new photo. This action is `login-required`.
 # Group Uploaded medical image
 Upload medical image related resources of *The Yelda API*.
 
-## A single uploaded medical image object [/uploads/medical-images/{url}]
+## A single uploaded medical image object [/uploads/medical-images/{url}/{?green_channel}]
 A single medical image object.
 
 + Parameters
     + url: 20180620154353.262116-4139340812150045587.png (required, string) - Hash value of the filename and timestamp in form of a string
+    + green_channel: true (optional) - A flag indicating to get green-channel grey scale image
 
 ### Retrieve a Single uploaded medical image [GET]
 
