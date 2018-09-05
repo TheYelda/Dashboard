@@ -328,12 +328,14 @@ To update an account, send a JSON with updated value for All of the account reso
             }
 
 
-## Accounts Collection [/accounts/{?username}{?authority}]
+## Accounts Collection [/accounts/{?username}{?authority}{?offset}{?limit}]
 Collection of all accounts.
 
 + Parameters
     + username: yelda (optional, string) - Name of the Account in form of a string
     + authority: 100 (optional, int) - Authority of the Account in form of an integer
+    + offset: 100 (optional, int) - record offset of all, counting from 0
+    + limit: 20 (optional, int) - maximum number of records of each page
 
 ### List All Accounts [GET]
 
@@ -733,8 +735,12 @@ To update a job, send a JSON with updated value for All of the job resource attr
                 "message": "任务不存在"
             }
 
-## Jobs Collection [/jobs/]
+## Jobs Collection [/jobs/{?offset}{?limit}]
 Collection of all jobs.
+
++ Parameters
+    + offset: 100 (optional, int) - record offset of all, counting from 0
+    + limit: 20 (optional, int) - maximum number of records of each page
 
 ### List All Jobs [GET]
 
@@ -759,6 +765,7 @@ Collection of all jobs.
 
             {
                 "message":"任务集合获取成功",
+                "total": 10,
                 "data":
                     [
                         {
@@ -1071,12 +1078,14 @@ To update an image, send a JSON with updated value for All of the image resource
                 "message": "图像不存在"
             }
 
-## Images Collection [/images/{?state}]
+## Images Collection [/images/{?state}{?offset}{?limit}]
 Collection of all images.
 
 
 + Parameters
     + image_state: 301 (optional, int) - state of the image in form of a constant integer code
+    + offset: 100 (optional, int) - record offset of all, counting from 0
+    + limit: 20 (optional, int) - maximum number of records of each page
 
 ### List All Images [GET]
 
@@ -1101,6 +1110,7 @@ Collection of all images.
 
             {
                 "message":"图像集合获取成功",
+                "total": 10,
                 "data":
                     [
                         {
