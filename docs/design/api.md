@@ -769,6 +769,7 @@ Collection of all jobs.
                 "data":
                     [
                         {
+                            "nickname": "nick",
                             "job_id": 132,    
                             "image_id": 427,
                             "account_id": 42,
@@ -776,6 +777,7 @@ Collection of all jobs.
                             "job_state": 200,
                             "finished_date": "2018-04-17"
                         }, {
+                            "nickname": "nick",
                             "job_id": 1234,    
                             "image_id": 427,
                             "account_id": 42,
@@ -783,6 +785,7 @@ Collection of all jobs.
                             "job_state": 200,
                             "finished_date": "2018-04-17"
                         }, {
+                            "nickname": "nick",
                             "job_id": 352,    
                             "image_id": 427,
                             "account_id": 42,
