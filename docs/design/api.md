@@ -735,10 +735,13 @@ To update a job, send a JSON with updated value for All of the job resource attr
                 "message": "任务不存在"
             }
 
-## Jobs Collection [/jobs/{?offset}{?limit}]
+## Jobs Collection [/jobs/{?job_state}{?image_id}{?account_id}{?offset}{?limit}]
 Collection of all jobs.
 
 + Parameters
+    + job_state: 202 (optional, int) - job state filter
+    + image_id: 1 (optional, int) - image filter
+    + account_id: 1 (optional, int) - account filter
     + offset: 100 (optional, int) - record offset of all, counting from 0
     + limit: 20 (optional, int) - maximum number of records of each page
 
