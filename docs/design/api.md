@@ -1084,7 +1084,7 @@ To update an image, send a JSON with updated value for All of the image resource
                 "message": "图像不存在"
             }
 
-## Images Collection [/images/{?state}{?offset}{?limit}]
+## Images Collection [/images/{?image_state}{?offset}{?limit}]
 Collection of all images.
 
 
